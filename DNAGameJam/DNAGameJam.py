@@ -22,7 +22,7 @@ starimg = pygame.transform.scale(starimg,(40,40))
 done = False
 while(not done):
     for event in pygame.event.get():
-        if event.type == 12:
+        if (event.type == 12):
             done = True
         else:
             print(event.type)
