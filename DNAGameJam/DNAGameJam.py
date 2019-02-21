@@ -3,7 +3,7 @@ import pygame
 
 pygame.init()
 
-
+#jonathan's comment
 timmer = pygame.time.Clock()
 
 swidth = 600
