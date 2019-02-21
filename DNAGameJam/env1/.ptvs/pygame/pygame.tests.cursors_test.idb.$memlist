@@ -1,0 +1,16 @@
+sys
+pygame
+CursorsModuleTest
+os
+__builtins__
+pkg_dir
+__file__
+parent_dir
+__cached__
+pkg_name
+is_pygame_pkg
+__name__
+fixture_path
+__package__
+unittest
+__spec__

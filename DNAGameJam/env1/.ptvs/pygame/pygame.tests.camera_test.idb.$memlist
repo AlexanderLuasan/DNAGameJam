@@ -1,0 +1,17 @@
+sys
+pygame
+os
+__builtins__
+pkg_dir
+__file__
+unittest
+parent_dir
+__package__
+long_
+pkg_name
+math
+is_pygame_pkg
+__name__
+CameraModuleTest
+__cached__
+__spec__

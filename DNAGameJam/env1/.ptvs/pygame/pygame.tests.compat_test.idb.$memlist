@@ -1,0 +1,16 @@
+sys
+encode_file_path
+os
+__builtins__
+pkg_dir
+__file__
+__package__
+parent_dir
+CompatModuleTest
+pkg_name
+compat
+is_pygame_pkg
+__name__
+__cached__
+unittest
+__spec__

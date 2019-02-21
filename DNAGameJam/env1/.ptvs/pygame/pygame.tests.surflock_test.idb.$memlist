@@ -1,0 +1,17 @@
+sys
+SurfaceLockTest
+pygame
+os
+__builtins__
+pkg_dir
+__file__
+parent_dir
+__cached__
+pkg_name
+is_pygame_pkg
+__name__
+IS_PYPY
+platform
+__package__
+unittest
+__spec__
