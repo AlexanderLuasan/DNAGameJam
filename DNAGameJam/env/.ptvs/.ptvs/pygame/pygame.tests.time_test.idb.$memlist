@@ -1,0 +1,17 @@
+sys
+ClockTypeTest
+pygame
+os
+__builtins__
+pkg_dir
+__file__
+Clock
+TimeModuleTest
+__cached__
+pkg_name
+is_pygame_pkg
+__name__
+__package__
+parent_dir
+unittest
+__spec__

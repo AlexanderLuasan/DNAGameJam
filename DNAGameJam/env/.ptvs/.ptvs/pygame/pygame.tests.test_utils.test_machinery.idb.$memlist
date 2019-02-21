@@ -1,0 +1,16 @@
+get_tags
+TAGS_RE
+re
+__builtins__
+StringIO
+__file__
+__package__
+unittest
+__cached__
+TestTags
+import_submodule
+__name__
+random
+PygameTestLoader
+inspect
+__spec__

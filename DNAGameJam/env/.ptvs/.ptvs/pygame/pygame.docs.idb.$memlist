@@ -1,0 +1,13 @@
+urlparse
+urllib
+os
+__spec__
+__file__
+__package__
+__name__
+pkg_dir
+__builtins__
+__cached__
+main
+__main__
+__path__
