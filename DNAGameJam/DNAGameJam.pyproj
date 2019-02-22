@@ -35,6 +35,9 @@
     <Compile Include="plat.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Rotator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="screen.py">
       <SubType>Code</SubType>
     </Compile>
