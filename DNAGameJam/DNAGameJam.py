@@ -8,7 +8,7 @@ from pygame import Rect
 import levelload
 from Rotator import Rotationpoint
 levelload.go()
-collistionObjlist = levelload.load()
+collisionObjlist = levelload.load()
 
 pygame.init()
 
@@ -47,10 +47,13 @@ starimg = pygame.transform.scale(starimg,(40,40))
 # collistionObjlist.append(plat(Rect(350, 300, 60, 60)))
 # collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
 
-collistionObjlist.append(mpf)
-mpf.move(100, 100)
-for k in range(len(collistionObjlist)):
-    print(collistionObjlist[k].id())
+collisionObjlist.append(mpf)
+collisionObjlist.append(pf)
+#collisionObjlist.append(hero)
+collisionObjlist.append(rp)
+
+for k in range(len(collisionObjlist)):
+    print(collisionObjlist[k].id())
 
 
 
@@ -134,9 +137,9 @@ while(not done):
     hero.Update()
 
 
-    for i in range(len(collistionObjlist)):
-        if(hero.getCollision().colliderect(collistionObjlist[i].getCollision())):
-            hero.collide(collistionObjlist[i])
+    for i in range(len(collisionObjlist)):
+        if(hero.getCollision().colliderect(collisionObjlist[i].getCollision())):
+            hero.collide(collisionObjlist[i])
 
 
     #cammra movement
@@ -163,8 +166,8 @@ while(not done):
     #screen.blit(starimg,shape)
     gamescreen.clear()
     gamescreen.drawRect(shape)
-    for i in range(len(collistionObjlist)):
-        gamescreen.drawObj(collistionObjlist[i])
+    for i in range(len(collisionObjlist)):
+        gamescreen.drawObj(collisionObjlist[i])
 
     gamescreen.drawRect(hero.getCollision())
     gamescreen.drawRect(rp.getCollision())

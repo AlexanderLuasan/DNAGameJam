@@ -27,9 +27,9 @@ class window():
         x = CollisionObj.getCollision().x+self.camx
         y = CollisionObj.getCollision().y+self.camy
         if CollisionObj.id() == 0:
-            d.rect(self.screen,Color(240, 100, 59, 255),Rect(x,y,w,h),0)
-        elif CollisionObj.id() == 1:
             d.rect(self.screen,Color(0, 0, 0, 255),Rect(x,y,w,h),0)
+        elif CollisionObj.id() == 1:
+            d.rect(self.screen,Color(240, 100, 59, 255),Rect(x,y,w,h),0)
         elif CollisionObj.id() == 2:
             d.rect(self.screen,Color(200, 0, 0, 255),Rect(x,y,w,h),0)
     def flip(self):
