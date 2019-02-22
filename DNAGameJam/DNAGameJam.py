@@ -48,7 +48,6 @@ starimg = pygame.transform.scale(starimg,(40,40))
 # collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
 
 collistionObjlist.append(mpf)
-
 mpf.move(100, 100)
 for k in range(len(collistionObjlist)):
     print(collistionObjlist[k].id())
@@ -165,7 +164,7 @@ while(not done):
     gamescreen.clear()
     gamescreen.drawRect(shape)
     for i in range(len(collistionObjlist)):
-        gamescreen.drawRect(collistionObjlist[i].getCollision())
+        gamescreen.drawObj(collistionObjlist[i])
 
     gamescreen.drawRect(hero.getCollision())
     gamescreen.drawRect(rp.getCollision())

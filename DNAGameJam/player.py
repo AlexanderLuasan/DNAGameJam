@@ -61,7 +61,7 @@ class player(CollisionObj):
         self.collisionRect.x=self.collisionRect.x+self.velx
         self.collisionRect.y=self.collisionRect.y+self.vely
     def id(self):
-        return "i'm player"
+        return 0
     def collide(self,other):
         
         self.collisionRect.x=self.collisionRect.x-self.velx
