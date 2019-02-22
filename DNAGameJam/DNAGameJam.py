@@ -6,7 +6,7 @@ from plat import plat
 from plat import movingplat
 from pygame import Rect
 import levelload
-
+from Rotator import Rotationpoint
 levelload.go()
 collistionObjlist = levelload.load()
 
@@ -15,6 +15,9 @@ pygame.init()
 pf = plat(Rect(0,0,40,40))
 mpf = movingplat(Rect(300, 50, 10, 10))
 hero = player(Rect(60, 60, 30, 30)) 
+
+rp = Rotationpoint(Rect(300,300,10,10),[mpf])
+
 
 
 #jonathan's comment
@@ -124,7 +127,7 @@ while(not done):
     shape.x = shape.x+xvel
     shape.y = shape.y+yvel
 
-
+    rp.Update()
     if(shape.bottom>sheight or shape.top<0):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
@@ -156,6 +159,7 @@ while(not done):
         gamescreen.drawRect(collistionObjlist[i].getCollision())
 
     gamescreen.drawRect(hero.getCollision())
+    gamescreen.drawRect(rp.getCollision())
 
     pygame.display.flip()
 
