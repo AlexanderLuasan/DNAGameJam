@@ -6,7 +6,7 @@ class player(CollisionObj):
        CollisionObj.__init__(self,CollisionRect,CollisionRect)
        self.velx = 0
        self.vely = 0
-       self.keys = [False,False,False,False]
+       self.keys = [False,False,False,False]#left right up down
     def setkey(self,index,value):
        self.keys[index]=value
     def Update(self):

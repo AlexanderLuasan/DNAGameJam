@@ -112,6 +112,10 @@ while(not done):
     shape.x = shape.x+xvel
     shape.y = shape.y+yvel
 
+    for i in range(len(collistionObjlist)):
+        if(hero.getCollision().colliderect(collistionObjlist[i].getCollision())):
+            print("collide")
+
 
     #cammra movement
     if(cammramovement[0]==True):
