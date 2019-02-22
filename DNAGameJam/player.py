@@ -30,19 +30,19 @@ class player(CollisionObj):
         if(self.keys[0]==False and self.keys[1]==False):
             self.velx-=0.1
             if(self.velx<0):
-                self.velx=0;
+                self.velx=0
         if(self.keys[1]==False and self.keys[0]==False):
             self.velx+=0.1
             if(self.velx>0):
-                self.velx=0;
+                self.velx=0
         if(self.keys[2]==False and self.keys[3]==False):
             self.vely-=0.1
             if(self.vely<0):
-                self.vely=0;
+                self.vely=0
         if(self.keys[3]==False and self.keys[2]==False):
             self.vely+=0.1
             if(self.vely>0):
-                self.vely=0;
+                self.vely=0
         
         #move collision box
         self.collisionRect.x=self.collisionRect.x+self.velx
