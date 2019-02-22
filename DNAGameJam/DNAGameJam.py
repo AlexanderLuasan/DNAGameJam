@@ -1,5 +1,7 @@
 import pygame
 import screen
+import CollisionObj
+from pygame import Rect
 pygame.init()
 
 #jonathan's comment
@@ -20,6 +22,14 @@ starimg = pygame.image.load("star.jpg")
 starimg = pygame.transform.scale(starimg,(40,40))
 
 collistionObjlist = []
+
+collistionObjlist.append(CollisionObj.CollisionObj(Rect(5, 5, 10, 10), Rect(15, 15, 10, 10)))
+collistionObjlist.append(CollisionObj.CollisionObj(Rect(50, 50, 100, 10), Rect(50, 50, 100, 10)))
+collistionObjlist.append(CollisionObj.CollisionObj(Rect(70, 80, 10, 10), Rect(70, 80, 10, 10)))
+collistionObjlist.append(CollisionObj.CollisionObj(Rect(500, 300, 90, 90), Rect(70, 80, 10, 10)))
+collistionObjlist.append(CollisionObj.CollisionObj(Rect(250, 200, 50, 50), Rect(70, 80, 10, 10)))
+collistionObjlist.append(CollisionObj.CollisionObj(Rect(90, 90, 5, 5), Rect(70, 80, 10, 10)))
+collistionObjlist.append(CollisionObj.CollisionObj(Rect(300, 300, 60, 60), Rect(70, 80, 10, 10)))
 
 
 
@@ -87,6 +97,14 @@ while(not done):
     #screen.blit(starimg,shape)
     gamescreen.clear()
     gamescreen.drawRect(shape)
+    gamescreen.drawRect(collistionObjlist[0].getCollision())
+    gamescreen.drawRect(collistionObjlist[1].getCollision())
+    gamescreen.drawRect(collistionObjlist[2].getCollision())
+    gamescreen.drawRect(collistionObjlist[3].getCollision())
+    gamescreen.drawRect(collistionObjlist[4].getCollision())
+    gamescreen.drawRect(collistionObjlist[5].getCollision())
+
+
     pygame.display.flip()
 
     timmer.tick(60)
