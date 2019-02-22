@@ -24,18 +24,59 @@ collistionObjlist = []
 
 
 
+cammramovement = [False,False,False,False]
 
 done = False
 while(not done):
     for event in pygame.event.get():
         if (event.type == 12):
             done = True
+        elif(event.type == 2):
+            if(event.key==119):
+                print('w')
+                cammramovement[2]=True
+            elif(event.key == 97):
+                print('a')
+                cammramovement[0]=True
+            elif(event.key == 115):
+                print('s')
+                cammramovement[3]=True
+            elif(event.key == 100):
+                print('d')
+                cammramovement[1]=True
+            else:
+                print(event.key)
+        elif(event.type == 3):
+            if(event.key==119):
+                print('w')
+                cammramovement[2]=False
+            elif(event.key == 97):
+                print('a')
+                cammramovement[0]=False
+            elif(event.key == 115):
+                print('s')
+                cammramovement[3]=False
+            elif(event.key == 100):
+                print('d')
+                cammramovement[1]=False
+            else:
+                print(event.key)
         else:
             print(event.type)
 
     shape.x = shape.x+xvel
     shape.y = shape.y+yvel
 
+
+    #cammra movement
+    if(cammramovement[0]==True):
+        gamescreen.changex(1)
+    if(cammramovement[1]==True):
+        gamescreen.changex(-1)
+    if(cammramovement[2]==True):
+        gamescreen.changey(1)
+    if(cammramovement[3]==True):
+        gamescreen.changex(-1)
 
     if(shape.bottom>sheight or shape.top<0):
         yvel = yvel * -1

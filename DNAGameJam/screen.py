@@ -9,6 +9,10 @@ class window():
         self.camy = 0
     def clear(self):
         self.screen.fill(Color(200,200,200,255))
+    def changex(self,v):
+        self.camx+=v
+    def changey(self,v):
+        self.camy+=v
     def drawRect(self,rect):
 
         h = rect.height
