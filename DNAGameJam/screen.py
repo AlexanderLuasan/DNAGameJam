@@ -2,6 +2,7 @@
 import pygame.draw as d
 from pygame import Color
 from pygame import Rect
+import Rotator
 class window():
     def __init__(self,screenSurface):
         self.screen = screenSurface;
@@ -31,6 +32,10 @@ class window():
         elif CollisionObj.id() == 1:
             d.rect(self.screen,Color(240, 100, 59, 255),Rect(x,y,w,h),0)
         elif CollisionObj.id() == 2:
-            d.rect(self.screen,Color(200, 0, 0, 255),Rect(x,y,w,h),0)
+            d.rect(self.screen,Color(240, 100, 59, 255),Rect(x,y,w,h),0)
+        elif CollisionObj.id() == 3:
+            for i in CollisionObj.platforms:
+                d.rect(self.screen,Color(200, 0, 0, 255),Rect(x,y,w,h),0)
+                d.line(self.screen,Color(200, 0, 0, 255), (i.getCollision().center), (CollisionObj.getCollision().centerx,CollisionObj.getCollision().centery), 1) 
     def flip(self):
         pass

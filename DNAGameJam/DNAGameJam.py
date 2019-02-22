@@ -19,7 +19,6 @@ hero = player(Rect(60, 60, 30, 30))
 rp = Rotationpoint(Rect(300,300,10,10),[mpf])
 
 
-
 #jonathan's comment
 timmer = pygame.time.Clock()
 
