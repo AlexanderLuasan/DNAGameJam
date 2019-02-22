@@ -15,17 +15,17 @@ class player(CollisionObj):
         if(self.keys[1]==True):
             self.velx-=1
         if(self.velx>maxspeed):
-            self.velx-=1;
+            self.velx=maxspeed
         if(self.velx<-maxspeed):
-            velx=-maxspeed
+            self.velx=-maxspeed
         if(self.keys[2]==True):
             self.vely+=1
         if(self.keys[3]==True):
             self.vely-=1
         if(self.vely>maxspeed):
-            vely=maxspeed
+            self.vely=maxspeed
         if(self.vely<-maxspeed):
-            vely=-10
+            self.vely=-maxspeed
         
         if(self.keys[0]==False and self.keys[1]==False):
             self.velx-=0.1
