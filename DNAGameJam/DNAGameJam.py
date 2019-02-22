@@ -6,16 +6,15 @@ from plat import plat
 from plat import movingplat
 from pygame import Rect
 import levelload
-from spritesheet import sprite
+#from spritesheet import sprite
+from Rotator import Rotationpoint
 
 #imageFile = spritesheet.sprite('sprite.tmx')
 
 
-sprite.test()
-collistionObjlist = levelload.load()
-from Rotator import Rotationpoint
-levelload.go()
+#sprite.test()
 collisionObjlist = levelload.load()
+
 
 pygame.init()
 
