@@ -82,6 +82,8 @@ while(not done):
             elif(event.key == 275):
                 print('rightkey')
                 hero.setkey(0, True)
+            elif(event.key == 32):
+                hero.setkey(4,True)
             else:
                 print(event.key)
         elif(event.type == 3):
@@ -109,6 +111,8 @@ while(not done):
             elif(event.key == 275):
                 print('rightkey')
                 hero.setkey(0, False)
+            elif(event.key == 32):
+                hero.setkey(4,False)
             else:
                 print(event.key)
         else:
@@ -140,9 +144,6 @@ while(not done):
     if(cammramovement[3]==True):
         gamescreen.changey(-1)
 
-    
-    print(gamescreen.camx, gamescreen.camy, hero.collisionRect.left, hero.collisionRect.top)
-    
 
     #screen.
     #screen.blit(starimg,shape)
@@ -152,19 +153,6 @@ while(not done):
         gamescreen.drawRect(collistionObjlist[i].getCollision())
 
     gamescreen.drawRect(hero.getCollision())
-
-    if hero.collisionRect.right + gamescreen.camx < 0:
-        print("out of screen left")
-        done = True
-    elif hero.collisionRect.top + gamescreen.camy +  hero.collisionRect.height < 0:
-        print("out ouf screen up")
-        done = True
-    elif hero.collisionRect.left + gamescreen.camx > swidth:
-        print("out of screen right")
-        done = True
-    elif hero.collisionRect.top + gamescreen.camy > sheight:
-        print("out of screen down")
-        done = True
 
     pygame.display.flip()
 
