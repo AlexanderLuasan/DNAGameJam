@@ -142,7 +142,7 @@ while(not done):
     if(cammramovement[2]==True):
         gamescreen.changey(1)
     if(cammramovement[3]==True):
-        gamescreen.changex(-1)
+        gamescreen.changey(-1)
 
 
     #screen.
