@@ -32,4 +32,4 @@ class Rotationpoint(CollisionObj):
             y=math.sin(polar[1]) * polar[0]
             self.platforms[i].move(x+self.collisionRect.centerx,y+self.collisionRect.centery)
     def id(self):
-        return "2"
+        return 3
