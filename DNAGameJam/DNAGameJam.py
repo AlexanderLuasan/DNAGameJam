@@ -6,8 +6,12 @@ from plat import plat
 from plat import movingplat
 from pygame import Rect
 import levelload
+from spritesheet import sprite
 
-levelload.go()
+#imageFile = spritesheet.sprite('sprite.tmx')
+
+
+sprite.test()
 collistionObjlist = levelload.load()
 
 pygame.init()
