@@ -82,7 +82,6 @@ while(not done):
             elif(event.key == 275):
                 print('rightkey')
                 hero.setkey(0, True)
-
             else:
                 print(event.key)
         elif(event.type == 3):
@@ -141,6 +140,7 @@ while(not done):
     if(cammramovement[3]==True):
         gamescreen.changey(-1)
 
+    print(gamescreen.camx, gamescreen.camy, hero.collisionRect)
 
     #screen.
     #screen.blit(starimg,shape)
