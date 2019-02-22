@@ -5,7 +5,6 @@ class CollisionObj():
     def __init__ (self,collisionRect,DrawingRect):
         self.collisionRect = collisionRect
         self.DrawingRect = DrawingRect
-
     def Update(self):
         pass
     def getCollision(self):

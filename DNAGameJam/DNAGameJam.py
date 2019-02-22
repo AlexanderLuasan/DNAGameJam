@@ -19,6 +19,12 @@ yvel = 4
 starimg = pygame.image.load("star.jpg")
 starimg = pygame.transform.scale(starimg,(40,40))
 
+collistionObjlist = []
+
+
+
+
+
 done = False
 while(not done):
     for event in pygame.event.get():
