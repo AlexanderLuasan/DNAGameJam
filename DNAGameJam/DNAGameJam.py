@@ -9,7 +9,9 @@ pygame.init()
 pf = plat(Rect(0,0,40,40))
 
 
-hero = player(Rect(60, 60, 50, 75)) 
+hero = player(Rect(60, 60, 30, 30)) 
+
+
 #jonathan's comment
 timmer = pygame.time.Clock()
 
@@ -64,12 +66,17 @@ while(not done):
                 cammramovement[1]=True
             elif(event.key == 273):
                 print('upkey')
+                hero.setkey(3, True)
             elif(event.key == 276):
                 print('leftkey')
+                hero.setkey(1, True)
             elif(event.key == 274):
                 print('downkey')
+                hero.setkey(2, True)
             elif(event.key == 275):
                 print('rightkey')
+                hero.setkey(0, True)
+
             else:
                 print(event.key)
         elif(event.type == 3):
@@ -87,12 +94,16 @@ while(not done):
                 cammramovement[1]=False
             elif(event.key == 273):
                 print('upkey')
+                hero.setkey(3, False)
             elif(event.key == 276):
                 print('leftkey')
+                hero.setkey(1, False)
             elif(event.key == 274):
                 print('downkey')
+                hero.setkey(2, False)
             elif(event.key == 275):
                 print('rightkey')
+                hero.setkey(0, False)
             else:
                 print(event.key)
         else:
@@ -116,7 +127,7 @@ while(not done):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
         xvel= xvel * -1;
-
+    hero.Update()
     #screen.
     #screen.blit(starimg,shape)
     gamescreen.clear()

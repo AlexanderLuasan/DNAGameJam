@@ -14,19 +14,21 @@ class player(CollisionObj):
             self.velx+=1
         if(self.keys[1]==True):
             self.velx-=1
-        if(velx>10):
+        if(self.velx>10):
             velx=10
-        if(velx<-10):
+        if(self.velx<-10):
             velx=-10
         if(self.keys[2]==True):
             self.vely+=1
         if(self.keys[3]==True):
             self.vely-=1
-        if(vely>10):
+        if(self.vely>10):
             vely=10
-        if(vely<-10):
+        if(self.vely<-10):
             vely=-10
         #move collision box
-        self.collisionRect.x+velx
-        self.collisionRect.y+vely
+        self.collisionRect.x=self.collisionRect.x+self.velx
+        self.collisionRect.y=self.collisionRect.y+self.vely
+    def id(self):
+        return "i'm player"
 
