@@ -7,6 +7,7 @@ from pygame import Rect
 import levelload
 
 levelload.go()
+collistionObjlist = levelload.load()
 
 pygame.init()
 
@@ -33,14 +34,15 @@ yvel = 4
 starimg = pygame.image.load("star.jpg")
 starimg = pygame.transform.scale(starimg,(40,40))
 
-collistionObjlist = []
 
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(5, 5, 10, 10), Rect(15, 15, 10, 10)))
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(50, 50, 100, 10), Rect(50, 50, 100, 10)))
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(70, 80, 10, 10), Rect(70, 80, 10, 10)))
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(500, 300, 90, 90), Rect(70, 80, 10, 10)))
-collistionObjlist.append(plat(Rect(350, 300, 60, 60)))
-collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
+
+
+# collistionObjlist.append(CollisionObj.CollisionObj(Rect(5, 5, 10, 10), Rect(15, 15, 10, 10)))
+# collistionObjlist.append(CollisionObj.CollisionObj(Rect(50, 50, 100, 10), Rect(50, 50, 100, 10)))
+# collistionObjlist.append(CollisionObj.CollisionObj(Rect(70, 80, 10, 10), Rect(70, 80, 10, 10)))
+# collistionObjlist.append(CollisionObj.CollisionObj(Rect(500, 300, 90, 90), Rect(70, 80, 10, 10)))
+# collistionObjlist.append(plat(Rect(350, 300, 60, 60)))
+# collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
 
 for k in range(len(collistionObjlist)):
     print(collistionObjlist[k].id())
