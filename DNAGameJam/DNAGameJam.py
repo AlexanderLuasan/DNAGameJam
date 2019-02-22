@@ -44,7 +44,7 @@ while(not done):
 
     #screen.
     #screen.blit(starimg,shape)
-    
+    gamescreen.clear()
     gamescreen.drawRect(shape)
     pygame.display.flip()
 
