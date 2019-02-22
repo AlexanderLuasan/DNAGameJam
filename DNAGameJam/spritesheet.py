@@ -1,6 +1,5 @@
 from xml.dom import minidom
 import pygame
-from plat import plat
 
 class sprite():
     def __init__ (self, filename):
@@ -14,21 +13,27 @@ class sprite():
         self.parent = pygame.image.load("50365.png")
 
         for i in range(framebox.length):
-            x = framebox[i].attributes['x'].value
-            y = framebox[i].attributes['y'].value
-            w = framebox[i].attributes['width'].value
-            h = framebox[i].attributes['height'].value
-            frames.append(plat(pygame.Rect(x,y,w,h)))
+            x = int(framebox[i].attributes['x'].value)
+            y = int(framebox[i].attributes['y'].value)
+            w = int(framebox[i].attributes['width'].value)
+            h = int(framebox[i].attributes['height'].value)
+            self.drawbox.append(pygame.Rect(x,y,w,h))
 
         for j in range(hitbox.length):
-            x = hitbox[j].attributes['x'].value
-            y = hitbox[j].attributes['y'].value
-            w = hitbox[j].attributes['width'].value
-            h = hitbox[j].attributes['height'].value
-            hitboxes.append(pygame.Rect(x,y,w,h))
+            x = int(hitbox[j].attributes['x'].value)
+            y = int(hitbox[j].attributes['y'].value)
+            w = int(hitbox[j].attributes['width'].value)
+            h = int(hitbox[j].attributes['height'].value)
+            self.hitboxes.append(pygame.Rect(x,y,w,h))
 
         for k in range(framebox.length):
-
+            self.frames.append(self.parent.subsurface(self.drawbox[k]))
+        for i in range(framebox.length):
+            x=self.hitboxes[i].x-self.drawbox[i].x
+            y=self.hitboxes[i].y-self.drawbox[i].y
+            w=self.drawbox[i].width
+            h=self.drawbox[i].height
+            self.drawbox[i] = pygame.Rect(x,y,w,h)
 
         
 

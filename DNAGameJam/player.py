@@ -7,6 +7,7 @@ class player(CollisionObj):
     def __init__(self,CollisionRect):
        CollisionObj.__init__(self,CollisionRect,CollisionRect)
        self.velx = 0
+       self.index = 0
        self.vely = 0
        self.onground=False
        self.keys = [False,False,False,False,False]#left right up down
@@ -19,6 +20,7 @@ class player(CollisionObj):
         self.onground=False
         self.vely=-10
     def Update(self):
+        self.index+=1
         if(self.keys[0]==True):#speed control
             self.velx+=1
         if(self.keys[1]==True):

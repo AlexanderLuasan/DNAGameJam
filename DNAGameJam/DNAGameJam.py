@@ -6,10 +6,10 @@ from plat import plat
 from plat import movingplat
 from pygame import Rect
 import levelload
-#from spritesheet import sprite
+from spritesheet import sprite
 from Rotator import Rotationpoint
 
-#imageFile = spritesheet.sprite('sprite.tmx')
+
 
 
 #sprite.test()
@@ -20,7 +20,7 @@ pygame.init()
 
 pf = plat(Rect(0,0,40,40))
 mpf = movingplat(Rect(300, 50, 10, 10))
-hero = player(Rect(60, 60, 30, 30)) 
+hero = player(Rect(60, 60, 14, 30)) 
 
 rp = Rotationpoint(Rect(300,300,10,10),12,[mpf])
 
@@ -67,6 +67,8 @@ for k in range(len(collisionObjlist)):
 cammramovement = [False,False,False,False]
 
 done = False
+index = 0
+
 while(not done):
     for event in pygame.event.get():
         if (event.type == 12):
@@ -175,9 +177,9 @@ while(not done):
     for i in range(len(collisionObjlist)):
         gamescreen.drawObj(collisionObjlist[i])
 
-    gamescreen.drawRect(hero.getCollision())
+    gamescreen.drawObj(hero)
     gamescreen.drawRect(rp.getCollision())
-
+    gamescreen.drawimg(shape,starimg)
     pygame.display.flip()
 
     timmer.tick(60)
