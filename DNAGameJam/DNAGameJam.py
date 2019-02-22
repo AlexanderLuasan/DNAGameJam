@@ -3,7 +3,7 @@ import screen
 import CollisionObj
 from player import player
 from plat import plat
-
+from plat import movingplat
 from pygame import Rect
 import levelload
 
@@ -13,9 +13,7 @@ collistionObjlist = levelload.load()
 pygame.init()
 
 pf = plat(Rect(0,0,40,40))
-
-
-
+mpf = movingplat(Rect(300, 50, 10, 10))
 hero = player(Rect(60, 60, 30, 30)) 
 
 
@@ -46,6 +44,9 @@ starimg = pygame.transform.scale(starimg,(40,40))
 # collistionObjlist.append(plat(Rect(350, 300, 60, 60)))
 # collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
 
+collistionObjlist.append(mpf)
+
+mpf.move(100, 100)
 for k in range(len(collistionObjlist)):
     print(collistionObjlist[k].id())
 
