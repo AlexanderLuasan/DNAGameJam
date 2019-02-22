@@ -103,13 +103,8 @@ while(not done):
     #screen.blit(starimg,shape)
     gamescreen.clear()
     gamescreen.drawRect(shape)
-    gamescreen.drawRect(collistionObjlist[0].getCollision())
-    gamescreen.drawRect(collistionObjlist[1].getCollision())
-    gamescreen.drawRect(collistionObjlist[2].getCollision())
-    gamescreen.drawRect(collistionObjlist[3].getCollision())
-    gamescreen.drawRect(collistionObjlist[4].getCollision())
-    gamescreen.drawRect(collistionObjlist[5].getCollision())
-
+    for i in range(len(collistionObjlist)):
+        gamescreen.drawRect(collistionObjlist[i].getCollision())
 
     gamescreen.drawRect(hero.getCollision())
 
