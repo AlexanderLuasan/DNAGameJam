@@ -13,12 +13,18 @@ from spritesheet import sprite
 
 sprite.test()
 collistionObjlist = levelload.load()
+from Rotator import Rotationpoint
+levelload.go()
+collisionObjlist = levelload.load()
 
 pygame.init()
 
 pf = plat(Rect(0,0,40,40))
 mpf = movingplat(Rect(300, 50, 10, 10))
 hero = player(Rect(60, 60, 30, 30)) 
+
+rp = Rotationpoint(Rect(300,300,10,10),12,[mpf])
+
 
 
 #jonathan's comment
@@ -48,11 +54,13 @@ starimg = pygame.transform.scale(starimg,(40,40))
 # collistionObjlist.append(plat(Rect(350, 300, 60, 60)))
 # collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
 
-collistionObjlist.append(mpf)
+collisionObjlist.append(mpf)
+collisionObjlist.append(pf)
+#collisionObjlist.append(hero)
+collisionObjlist.append(rp)
 
-mpf.move(100, 100)
-for k in range(len(collistionObjlist)):
-    print(collistionObjlist[k].id())
+for k in range(len(collisionObjlist)):
+    print(collisionObjlist[k].id())
 
 
 
@@ -128,7 +136,7 @@ while(not done):
     shape.x = shape.x+xvel
     shape.y = shape.y+yvel
 
-
+    rp.Update()
     if(shape.bottom>sheight or shape.top<0):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
@@ -136,9 +144,9 @@ while(not done):
     hero.Update()
 
 
-    for i in range(len(collistionObjlist)):
-        if(hero.getCollision().colliderect(collistionObjlist[i].getCollision())):
-            hero.collide(collistionObjlist[i])
+    for i in range(len(collisionObjlist)):
+        if(hero.getCollision().colliderect(collisionObjlist[i].getCollision())):
+            hero.collide(collisionObjlist[i])
 
 
     #cammra movement
@@ -151,15 +159,25 @@ while(not done):
     if(cammramovement[3]==True):
         gamescreen.changey(-1)
 
-
+    
+    if hero.getCollision().right + gamescreen.camx < 0:
+        done = True
+    if hero.getCollision().left + gamescreen.camx - 600 > 0:
+        done = True
+    if hero.getCollision().top + gamescreen.camy < 0:
+        done = True
+    if hero.getCollision().bottom + gamescreen.camy - 400 > 0:
+        done = True
+    print(gamescreen.camy + sheight, hero.getCollision().top)
     #screen.
     #screen.blit(starimg,shape)
     gamescreen.clear()
     gamescreen.drawRect(shape)
-    for i in range(len(collistionObjlist)):
-        gamescreen.drawRect(collistionObjlist[i].getCollision())
+    for i in range(len(collisionObjlist)):
+        gamescreen.drawObj(collisionObjlist[i])
 
     gamescreen.drawRect(hero.getCollision())
+    gamescreen.drawRect(rp.getCollision())
 
     pygame.display.flip()
 

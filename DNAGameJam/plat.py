@@ -5,7 +5,7 @@ class plat(CollisionObj):
     def __init__(self, CollisionRect):
         CollisionObj.__init__(self,CollisionRect,CollisionRect)
     def id(self):
-        return "I'm a platform"
+        return 1
 
 class movingplat(plat):
     def __init__(self, CollisionRect):
@@ -13,3 +13,5 @@ class movingplat(plat):
     def move(self, x, y):
         self.collisionRect.centerx = x
         self.collisionRect.centery = y
+    def id(self):
+        return 2
