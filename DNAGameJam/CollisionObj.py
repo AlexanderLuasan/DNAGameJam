@@ -1,6 +1,4 @@
 
-
-
 class CollisionObj():
     def __init__ (self,collisionRect,DrawingRect):
         self.collisionRect = collisionRect

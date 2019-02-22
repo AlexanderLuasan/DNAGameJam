@@ -26,6 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DNAGameJam.py" />
+    <Compile Include="plat.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="screen.py">
       <SubType>Code</SubType>
     </Compile>

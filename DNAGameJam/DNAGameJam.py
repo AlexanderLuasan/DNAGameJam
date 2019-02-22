@@ -1,9 +1,11 @@
 import pygame
 import screen
 import CollisionObj
+from plat import plat
 from pygame import Rect
 pygame.init()
 
+pf = plat(Rect(0,0,40,40))
 #jonathan's comment
 timmer = pygame.time.Clock()
 
