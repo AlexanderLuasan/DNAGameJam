@@ -13,7 +13,9 @@ pygame.init()
 pf = plat(Rect(0,0,40,40))
 
 
-hero = player(Rect(60, 60, 50, 75)) 
+hero = player(Rect(60, 60, 30, 30)) 
+
+
 #jonathan's comment
 timmer = pygame.time.Clock()
 
@@ -37,9 +39,11 @@ collistionObjlist.append(CollisionObj.CollisionObj(Rect(5, 5, 10, 10), Rect(15, 
 collistionObjlist.append(CollisionObj.CollisionObj(Rect(50, 50, 100, 10), Rect(50, 50, 100, 10)))
 collistionObjlist.append(CollisionObj.CollisionObj(Rect(70, 80, 10, 10), Rect(70, 80, 10, 10)))
 collistionObjlist.append(CollisionObj.CollisionObj(Rect(500, 300, 90, 90), Rect(70, 80, 10, 10)))
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(250, 200, 50, 50), Rect(70, 80, 10, 10)))
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(90, 90, 5, 5), Rect(70, 80, 10, 10)))
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(300, 300, 60, 60), Rect(70, 80, 10, 10)))
+collistionObjlist.append(plat(Rect(350, 300, 60, 60)))
+collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
+
+for k in range(len(collistionObjlist)):
+    print(collistionObjlist[k].id())
 
 
 
@@ -64,6 +68,19 @@ while(not done):
             elif(event.key == 100):
                 print('d')
                 cammramovement[1]=True
+            elif(event.key == 273):
+                print('upkey')
+                hero.setkey(3, True)
+            elif(event.key == 276):
+                print('leftkey')
+                hero.setkey(1, True)
+            elif(event.key == 274):
+                print('downkey')
+                hero.setkey(2, True)
+            elif(event.key == 275):
+                print('rightkey')
+                hero.setkey(0, True)
+
             else:
                 print(event.key)
         elif(event.type == 3):
@@ -79,6 +96,18 @@ while(not done):
             elif(event.key == 100):
                 print('d')
                 cammramovement[1]=False
+            elif(event.key == 273):
+                print('upkey')
+                hero.setkey(3, False)
+            elif(event.key == 276):
+                print('leftkey')
+                hero.setkey(1, False)
+            elif(event.key == 274):
+                print('downkey')
+                hero.setkey(2, False)
+            elif(event.key == 275):
+                print('rightkey')
+                hero.setkey(0, False)
             else:
                 print(event.key)
         else:
@@ -86,6 +115,10 @@ while(not done):
 
     shape.x = shape.x+xvel
     shape.y = shape.y+yvel
+
+    for i in range(len(collistionObjlist)):
+        if(hero.getCollision().colliderect(collistionObjlist[i].getCollision())):
+            print("collide")
 
 
     #cammra movement
@@ -102,7 +135,7 @@ while(not done):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
         xvel= xvel * -1;
-
+    hero.Update()
     #screen.
     #screen.blit(starimg,shape)
     gamescreen.clear()
