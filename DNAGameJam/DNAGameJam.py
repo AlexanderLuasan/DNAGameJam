@@ -33,9 +33,11 @@ collistionObjlist.append(CollisionObj.CollisionObj(Rect(5, 5, 10, 10), Rect(15, 
 collistionObjlist.append(CollisionObj.CollisionObj(Rect(50, 50, 100, 10), Rect(50, 50, 100, 10)))
 collistionObjlist.append(CollisionObj.CollisionObj(Rect(70, 80, 10, 10), Rect(70, 80, 10, 10)))
 collistionObjlist.append(CollisionObj.CollisionObj(Rect(500, 300, 90, 90), Rect(70, 80, 10, 10)))
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(250, 200, 50, 50), Rect(70, 80, 10, 10)))
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(90, 90, 5, 5), Rect(70, 80, 10, 10)))
-collistionObjlist.append(CollisionObj.CollisionObj(Rect(300, 300, 60, 60), Rect(70, 80, 10, 10)))
+collistionObjlist.append(plat(Rect(350, 300, 60, 60)))
+collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
+
+for k in range(len(collistionObjlist)):
+    print(collistionObjlist[k].id())
 
 
 
@@ -60,6 +62,14 @@ while(not done):
             elif(event.key == 100):
                 print('d')
                 cammramovement[1]=True
+            elif(event.key == 273):
+                print('upkey')
+            elif(event.key == 276):
+                print('leftkey')
+            elif(event.key == 274):
+                print('downkey')
+            elif(event.key == 275):
+                print('rightkey')
             else:
                 print(event.key)
         elif(event.type == 3):
@@ -75,6 +85,14 @@ while(not done):
             elif(event.key == 100):
                 print('d')
                 cammramovement[1]=False
+            elif(event.key == 273):
+                print('upkey')
+            elif(event.key == 276):
+                print('leftkey')
+            elif(event.key == 274):
+                print('downkey')
+            elif(event.key == 275):
+                print('rightkey')
             else:
                 print(event.key)
         else:

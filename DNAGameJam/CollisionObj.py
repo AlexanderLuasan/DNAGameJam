@@ -13,5 +13,7 @@ class CollisionObj():
         pass
     def preDraw():
         pass
+    def id(self):
+        return "defalt"
 
 
