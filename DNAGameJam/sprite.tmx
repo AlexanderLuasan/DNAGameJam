@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="447" tileheight="687" infinite="0" nextlayerid="3" nextobjectid="19">
+ <tileset firstgid="1" name="50365" tilewidth="447" tileheight="687" tilecount="1" columns="1">
+  <image source="50365.png" width="447" height="687"/>
+ </tileset>
+ <layer id="1" name="Tile Layer 1" width="1" height="1">
+  <data encoding="csv">
+1
+</data>
+ </layer>
+ <objectgroup id="2" name="Object Layer 1">
+  <object id="7" name="1" x="80" y="1" width="15.9565" height="31.9565"/>
+  <object id="9" name="2" x="97.0435" y="1" width="15.9565" height="31.9565"/>
+  <object id="10" name="3" x="114.043" y="1.04348" width="15.9565" height="31.9565"/>
+  <object id="11" name="4" x="131.01" y="1.02126" width="15.9565" height="31.9565"/>
+  <object id="15" name="hit1" x="88.1304" y="1.30435">
+   <polygon points="0,0 -5.17391,1.82609 -7.13043,8.47826 -4.26087,11.7826 -8.08696,19.0435 -6.21739,23.7391 -8,31.3478 7.47826,31.4783 5.82609,23.6957 7.73913,19 3.73913,11.6522 5.78261,8.21739 2.86957,1.43478"/>
+  </object>
+  <object id="16" name="hit1" x="105.348" y="1.3913">
+   <polygon points="0,0 -5.17391,1.82609 -7.13043,8.47826 -4.26087,11.7826 -8.08696,19.0435 -6.21739,23.7391 -8,31.3478 7.47826,31.4783 5.82609,23.6957 7.73913,19 3.73913,11.6522 5.78261,8.21739 2.86957,1.43478"/>
+  </object>
+  <object id="17" name="hit1" x="122.217" y="1.3913">
+   <polygon points="0,0 -5.17391,1.82609 -7.13043,8.47826 -4.26087,11.7826 -8.08696,19.0435 -6.21739,23.7391 -8,31.3478 7.47826,31.4783 5.82609,23.6957 7.73913,19 3.73913,11.6522 5.78261,8.21739 2.86957,1.43478"/>
+  </object>
+  <object id="18" name="hit1" x="139.348" y="1.13043">
+   <polygon points="0,0 -5.17391,1.82609 -7.13043,8.47826 -4.26087,11.7826 -8.08696,19.0435 -6.21739,23.7391 -8,31.3478 7.47826,31.4783 5.82609,23.6957 7.73913,19 3.73913,11.6522 5.78261,8.21739 2.86957,1.43478"/>
+  </object>
+ </objectgroup>
+</map>
