@@ -22,7 +22,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CollisionObj.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DNAGameJam.py" />
+    <Compile Include="screen.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env1\">
