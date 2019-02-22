@@ -4,6 +4,10 @@ import CollisionObj
 from player import player
 from plat import plat
 from pygame import Rect
+import levelload
+
+levelload.go()
+
 pygame.init()
 
 pf = plat(Rect(0,0,40,40))
@@ -112,9 +116,17 @@ while(not done):
     shape.x = shape.x+xvel
     shape.y = shape.y+yvel
 
+
+    if(shape.bottom>sheight or shape.top<0):
+        yvel = yvel * -1
+    if(shape.right>swidth or shape.left<0):
+        xvel= xvel * -1;
+    hero.Update()
+
+
     for i in range(len(collistionObjlist)):
         if(hero.getCollision().colliderect(collistionObjlist[i].getCollision())):
-            print("collide")
+            hero.collide(collistionObjlist[i])
 
 
     #cammra movement
@@ -127,11 +139,7 @@ while(not done):
     if(cammramovement[3]==True):
         gamescreen.changex(-1)
 
-    if(shape.bottom>sheight or shape.top<0):
-        yvel = yvel * -1
-    if(shape.right>swidth or shape.left<0):
-        xvel= xvel * -1;
-    hero.Update()
+
     #screen.
     #screen.blit(starimg,shape)
     gamescreen.clear()

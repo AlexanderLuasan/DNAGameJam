@@ -49,4 +49,23 @@ class player(CollisionObj):
         self.collisionRect.y=self.collisionRect.y+self.vely
     def id(self):
         return "i'm player"
+    def collide(self,other):
+        if(self.collisionRect.bottom-self.vely>other.getCollision().top):#need to land onto
+            self.collisionRect.top = other.getCollision().bottom
+            self.vely=0
+        if(self.collisionRect.top-self.vely<other.getCollision().bottom):
+            self.collisionRect.bottom = other.getCollision().top
+            self.vely=0
+        else:
+            if(self.velx>0):
+                self.collisionRect.right = other.getCollision().left
+                velx=0
+            elif(self.velx<0):
+                self.collisionRect.left = other.getCollision().right
+                velx=0
+
+
+        
+
+        
 
