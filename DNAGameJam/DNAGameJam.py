@@ -1,11 +1,15 @@
 import pygame
 import screen
 import CollisionObj
+from player import player
 from plat import plat
 from pygame import Rect
 pygame.init()
 
 pf = plat(Rect(0,0,40,40))
+
+
+hero = player(Rect(60, 60, 50, 75)) 
 #jonathan's comment
 timmer = pygame.time.Clock()
 
@@ -106,6 +110,8 @@ while(not done):
     gamescreen.drawRect(collistionObjlist[4].getCollision())
     gamescreen.drawRect(collistionObjlist[5].getCollision())
 
+
+    gamescreen.drawRect(hero.getCollision())
 
     pygame.display.flip()
 
