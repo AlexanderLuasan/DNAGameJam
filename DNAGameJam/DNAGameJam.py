@@ -82,7 +82,8 @@ while(not done):
             elif(event.key == 275):
                 print('rightkey')
                 hero.setkey(0, True)
-
+            elif(event.key == 32):
+                hero.setkey(4,True)
             else:
                 print(event.key)
         elif(event.type == 3):
@@ -110,6 +111,8 @@ while(not done):
             elif(event.key == 275):
                 print('rightkey')
                 hero.setkey(0, False)
+            elif(event.key == 32):
+                hero.setkey(4,False)
             else:
                 print(event.key)
         else:
