@@ -2,15 +2,6 @@ from xml.dom import minidom
 import pygame
 from plat import plat
 
-def go():
-    mydoc = minidom.parse('test.tmx')
-
-    platform = mydoc.getElementsByTagName('object')
-    
-    print("test: ")
-    print(platform[1].attributes['id'].value);
-    print("test ended")
-
 def load():
     mydoc = minidom.parse('test.tmx')
     platform = mydoc.getElementsByTagName('object')

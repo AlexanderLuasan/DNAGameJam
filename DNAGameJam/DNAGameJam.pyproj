@@ -41,6 +41,9 @@
     <Compile Include="screen.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="spritesheet.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env1\">

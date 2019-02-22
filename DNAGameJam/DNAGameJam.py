@@ -6,9 +6,15 @@ from plat import plat
 from plat import movingplat
 from pygame import Rect
 import levelload
+#from spritesheet import sprite
 from Rotator import Rotationpoint
-levelload.go()
+
+#imageFile = spritesheet.sprite('sprite.tmx')
+
+
+#sprite.test()
 collisionObjlist = levelload.load()
+
 
 pygame.init()
 
@@ -16,7 +22,7 @@ pf = plat(Rect(0,0,40,40))
 mpf = movingplat(Rect(300, 50, 10, 10))
 hero = player(Rect(60, 60, 30, 30)) 
 
-rp = Rotationpoint(Rect(300,300,10,10),[mpf])
+rp = Rotationpoint(Rect(300,300,10,10),12,[mpf])
 
 
 #jonathan's comment
