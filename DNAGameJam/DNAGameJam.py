@@ -15,14 +15,10 @@ from Rotator import Rotationpoint
 #sprite.test()
 collisionObjlist = levelload.load()
 
+gamestate = levelload.level("test.tmx")
+
 
 pygame.init()
-
-pf = plat(Rect(0,0,40,40))
-mpf = movingplat(Rect(300, 50, 100, 10))
-hero = player(Rect(60, 60, 14, 30)) 
-
-rp = Rotationpoint(Rect(300,300,10,10),12,[mpf])
 
 
 #jonathan's comment
@@ -43,19 +39,6 @@ starimg = pygame.image.load("star.jpg")
 starimg = pygame.transform.scale(starimg,(40,40))
 
 
-
-
-# collistionObjlist.append(CollisionObj.CollisionObj(Rect(5, 5, 10, 10), Rect(15, 15, 10, 10)))
-# collistionObjlist.append(CollisionObj.CollisionObj(Rect(50, 50, 100, 10), Rect(50, 50, 100, 10)))
-# collistionObjlist.append(CollisionObj.CollisionObj(Rect(70, 80, 10, 10), Rect(70, 80, 10, 10)))
-# collistionObjlist.append(CollisionObj.CollisionObj(Rect(500, 300, 90, 90), Rect(70, 80, 10, 10)))
-# collistionObjlist.append(plat(Rect(350, 300, 60, 60)))
-# collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
-
-collisionObjlist.append(mpf)
-collisionObjlist.append(pf)
-#collisionObjlist.append(hero)
-collisionObjlist.append(rp)
 
 for k in range(len(collisionObjlist)):
     print(collisionObjlist[k].id())
@@ -136,7 +119,6 @@ while(not done):
     shape.x = shape.x+xvel
     shape.y = shape.y+yvel
 
-    rp.Update()
     if(shape.bottom>sheight or shape.top<0):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
@@ -144,8 +126,8 @@ while(not done):
     hero.Update()
 
 
-    for i in range(len(collisionObjlist)):
-        if(hero.getCollision().colliderect(collisionObjlist[i].getCollision())):
+    for i in range(len(gamestate.platforms)):
+        if(hero.getCollision().colliderect(gamestate.platforms[i].getCollision())):
             hero.collide(collisionObjlist[i])
             collisionObjlist[i].collide(hero)
 
@@ -173,8 +155,8 @@ while(not done):
     #screen.blit(starimg,shape)
     gamescreen.clear()
     gamescreen.drawRect(shape)
-    for i in range(len(collisionObjlist)):
-        gamescreen.drawObj(collisionObjlist[i])
+    for i in range(len(gamestate.platforms)):
+        gamescreen.drawObj(gamestate.platforms[i])
 
     gamescreen.drawObj(hero)
     gamescreen.drawRect(rp.getCollision())

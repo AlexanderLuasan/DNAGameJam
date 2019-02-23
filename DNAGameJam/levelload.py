@@ -6,12 +6,12 @@ from Rotator import Rotationpoint
 
 class level():
     def __init__(self,filename):
-        mydoc = minidom.parse('test.tmx')
+        mydoc = minidom.parse(filename)
         objectGroups = mydoc.getElementsByTagName('objectgroup')
         self.updaters = []
         self.platforms = []
         for objectGroup in objectGroups:
-            if(objectGroup.attributes["name"].value=="updaters"):
+            if(objectGroup.attributes["name"].value=="Updaters"):
                 objects = objectGroup.getElementsByTagName('object')
                 for obj in objects:
                     for i in range(len(objects)):
@@ -25,7 +25,9 @@ class level():
                         self.updaters[ind]=Rotationpoint(pygame.Rect(x+w/2-5,y+w/2-5,10,10),sp,[])
         for objectGroup in objectGroups:
             if(objectGroup.attributes["name"].value=="Platfroms"):
-                for obj in objectGroup:
+
+                plafroms = objectGroup.getElementsByTagName('object')
+                for obj in plafroms:
                     x = int(obj.attributes['x'].value)
                     y = int(obj.attributes['y'].value)
                     w = int(obj.attributes['width'].value)
