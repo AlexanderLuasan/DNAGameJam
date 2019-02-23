@@ -45,6 +45,23 @@ class level():
                     else:
                         p = plat(pygame.Rect(x,y,w,h))
                     self.platforms.append(p)
+        for objectGroup in objectGroups:
+            if(objectGroup.attributes["name"].value=="Candys"):
+
+                candy = objectGroup.getElementsByTagName('object')
+                for obj in candy:
+                    x = int(obj.attributes['x'].value)
+                    y = int(obj.attributes['y'].value)
+                    w = int(obj.attributes['width'].value)
+                    h = int(obj.attributes['height'].value)
+                    p=None
+                    if(obj.hasAttribute("name")):
+                        p = movingplat(pygame.Rect(x,y,w,h))
+                        ind = int(obj.attributes["name"].value)
+                        self.updaters[ind].add(p)
+                    else:
+                        p = plat(pygame.Rect(x,y,w,h))
+                    self.platforms.append(p)
         print(len(plafroms))
                     
 
