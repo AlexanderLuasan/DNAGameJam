@@ -54,8 +54,8 @@ class window():
 
             h = imageFile.dictionary[animationname]["frame"][CollisionObj.index].h
             w = imageFile.dictionary[animationname]["frame"][CollisionObj.index].w
-            x +=  imageFile.dictionary[animationname]["frame"][CollisionObj.index].x
-            y +=  imageFile.dictionary[animationname]["frame"][CollisionObj.index].y
+            x += imageFile.dictionary[animationname]["frame"][CollisionObj.index].x
+            y += imageFile.dictionary[animationname]["frame"][CollisionObj.index].y
             self.drawimg(Rect(x,y,w,h),imageFile.dictionary[animationname]["image"][CollisionObj.index][right])
 
             #d.rect(self.screen,Color(0, 0, 0, 255),Rect(x,y,w,h),0)
@@ -68,10 +68,11 @@ class window():
                 d.rect(self.screen,Color(160, 160, 160, 255),Rect(x,y,w,h),0)
                 d.line(self.screen,Color(160, 160, 160, 255), (i.getCollision().center), (CollisionObj.getCollision().centerx,CollisionObj.getCollision().centery), 1)
         elif CollisionObj.id() == 4:
-            imgnum = 0
-            imgframe = 0
+            imgnum = CollisionObj.imgnumber
+            if(CollisionObj.frame>=len(thingpicup.images[imgnum])):
+                CollisionObj.frame=0
 
-            im = thingpicup.images[0][0]
+            im = thingpicup.images[0][CollisionObj.frame]
             r = im.get_rect()
             r.center = CollisionObj.getCollision().center
             self.drawimg(r,im)
