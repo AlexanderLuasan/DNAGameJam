@@ -9,6 +9,7 @@ class player(CollisionObj):
        self.index = 0
        self.vely = 0
        self.onground=False
+       self.right = 0
        self.keys = [False,False,False,False,False]#left right up down
        self.countindex = 0
        
@@ -16,6 +17,10 @@ class player(CollisionObj):
         if(index==4 and value == True):
             if(self.onground):
                 self.jump()
+        elif(index == 0 and value == True):
+            self.right = 0
+        elif(index == 1 and value == True):
+            self.right = 1
         self.keys[index]=value
     def jump(self):
         self.onground=False

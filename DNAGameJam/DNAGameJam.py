@@ -135,13 +135,13 @@ while(not done):
 
     #cammra movement
     if(cammramovement[0]==True):
-        gamescreen.changex(1)
+        gamescreen.changex(3)
     if(cammramovement[1]==True):
-        gamescreen.changex(-1)
+        gamescreen.changex(-3)
     if(cammramovement[2]==True):
-        gamescreen.changey(1)
+        gamescreen.changey(3)
     if(cammramovement[3]==True):
-        gamescreen.changey(-1)
+        gamescreen.changey(-3)
 
     if(False):
         if hero.getCollision().right + gamescreen.camx < 0:

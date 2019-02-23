@@ -32,16 +32,30 @@ class window():
         x = CollisionObj.getCollision().x+self.camx
         y = CollisionObj.getCollision().y+self.camy
         if CollisionObj.id() == 0:
-            if(CollisionObj.index>= len(imageFile.drawbox)):
+
+
+            animationname = "idle"
+            right = CollisionObj.right
+
+            if(CollisionObj.velx!=0):
+                if(CollisionObj.velx>0):
+                    right = 0
+                else:
+                    right = 1
+                animationname = "Walking"
+
+            if(not CollisionObj.onground):
+                animationname = "jump"
+
+            if(CollisionObj.index>= len(imageFile.dictionary[animationname]["frame"])):
                 CollisionObj.index=0
-            h = imageFile.drawbox[CollisionObj.index].h
-            w = imageFile.drawbox[CollisionObj.index].w
-            x -=  imageFile.drawbox[CollisionObj.index].x
-            y -=  imageFile.drawbox[CollisionObj.index].y
-            if(CollisionObj.velx>0):
-                self.drawimg(Rect(x,y,w,h),imageFile.frames[CollisionObj.index])
-            else:
-                self.drawimg(Rect(x,y,w,h),imageFile.fliped[CollisionObj.index])
+
+            h = imageFile.dictionary[animationname]["frame"][CollisionObj.index].h
+            w = imageFile.dictionary[animationname]["frame"][CollisionObj.index].w
+            x +=  imageFile.dictionary[animationname]["frame"][CollisionObj.index].x
+            y +=  imageFile.dictionary[animationname]["frame"][CollisionObj.index].y
+            self.drawimg(Rect(x,y,w,h),imageFile.dictionary[animationname]["image"][CollisionObj.index][right])
+
             #d.rect(self.screen,Color(0, 0, 0, 255),Rect(x,y,w,h),0)
         elif CollisionObj.id() == 1:
             d.rect(self.screen,Color(0, 122, 14, 255),Rect(x,y,w,h),0)
