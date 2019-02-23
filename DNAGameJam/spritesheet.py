@@ -23,6 +23,13 @@ class sprite():
 
        
         self.parent = pygame.image.load("new_sprite.png")
+        
+        #clearcolor
+        for x in range(self.parent.get_width()):
+            for y in range(self.parent.get_height()):
+                c = self.parent.get_at((x,y))
+                if(c.a+c.b+c.g>253*3):
+                    self.parent.set_at((x,y),pygame.Color(0,0,0,0))
 
         self.dictionary = {}
         aninames = []
@@ -45,10 +52,10 @@ class sprite():
 
             for f in self.dictionary[key]["frame"]:
                 self.dictionary[key]["image"].append(self.parent.subsurface(f))
-            for f in range(len(self.dictionary[key]["frame"])):#divide 2
-                w = self.dictionary[key]["image"][f].get_width()
-                h = self.dictionary[key]["image"][f].get_height()
-                self.dictionary[key]["image"][f] = pygame.transform.scale(self.dictionary[key]["image"][f],(int(w/spritescale),int(h/spritescale)))
+            #for f in range(len(self.dictionary[key]["frame"])):#divide 2
+                #w = self.dictionary[key]["image"][f].get_width()
+                #h = self.dictionary[key]["image"][f].get_height()
+                #self.dictionary[key]["image"][f] = pygame.transform.scale(self.dictionary[key]["image"][f],(int(w/spritescale),int(h/spritescale)))
                 
             for i in range(len(self.dictionary[key]["frame"])):
                 x=(self.dictionary[key]["frame"][i].x-self.dictionary[key]["hitbox"][i].x)/spritescale
@@ -60,6 +67,7 @@ class sprite():
         for key in self.dictionary.keys():
             for i in range(len(self.dictionary[key]["image"])):
                 self.dictionary[key]["image"][i] = (self.dictionary[key]["image"][i],pygame.transform.flip(self.dictionary[key]["image"][i],True,False))
+        
 
 
 class backgroundimg():

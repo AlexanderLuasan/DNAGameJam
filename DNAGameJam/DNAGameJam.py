@@ -12,8 +12,6 @@ from candy import candy
 from Rotator import lineMover
 
 
-testcandy = candy(Rect(50, 50, 20, 20))
-
 #print(testcandy.id())
 
 
@@ -25,14 +23,14 @@ gamestate = levelload.level("newmap.tmx")
 
 pygame.init()
 
-pygame.mixer.music.load("flatfoot.mp3")
-pygame.mixer.music.play()
+#pygame.mixer.music.load("flatfoot.mp3")
+#pygame.mixer.music.play()
 hero = player(Rect(gamestate.px,gamestate.py,28,133))
 #jonathan's comment
 timmer = pygame.time.Clock()
 
-swidth = 800
-sheight = 500
+swidth = 1280
+sheight =600
 pygame.display.set_mode([swidth,sheight])
 gamescreen=screen.window(pygame.display.get_surface())
 

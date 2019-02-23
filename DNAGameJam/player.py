@@ -5,6 +5,7 @@ speedx = 3
 gravity = 0.5
 gravityspeed = 2
 countindexvar = 0.5
+framespeed = 2
 class player(CollisionObj):
     def __init__(self,CollisionRect):
        CollisionObj.__init__(self,CollisionRect,CollisionRect)
@@ -30,7 +31,7 @@ class player(CollisionObj):
         self.vely=-5
     def Update(self):
         self.countindex += countindexvar
-        if(self.countindex==4):
+        if(self.countindex==framespeed):
             self.index+=1
             self.countindex = 0
         if(self.keys[0]==True):#speed control
