@@ -8,9 +8,11 @@ from pygame import Rect
 import levelload
 from spritesheet import sprite
 from Rotator import Rotationpoint
+from Rotator import lineMover
 
-
-
+mpf = movingplat(pygame.Rect(0,0,100,10))
+makeing = lineMover(0,0,100,50,1)
+makeing.add(1,mpf)
 
 #sprite.test()
 
@@ -38,10 +40,6 @@ yvel = 4
 starimg = pygame.image.load("star.jpg")
 starimg = pygame.transform.scale(starimg,(40,40))
 
-
-
-for k in range(len(collisionObjlist)):
-    print(collisionObjlist[k].id())
 
 
 
@@ -123,6 +121,7 @@ while(not done):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
         xvel= xvel * -1;
+    makeing.Update()
     for u in gamestate.updaters:
         u.Update()
     hero.Update()
@@ -160,6 +159,7 @@ while(not done):
     #screen.blit(starimg,shape)
     gamescreen.clear()
     #gamescreen.drawRect(shape)
+    gamescreen.drawObj(mpf)
     for i in range(len(gamestate.platforms)):
         gamescreen.drawObj(gamestate.platforms[i])
 

@@ -2,6 +2,7 @@
 from CollisionObj import CollisionObj
 from pygame.math import Vector2
 import math
+from pygame import Rect
 
 def GCD(a,b):
     if(a==0):
@@ -39,43 +40,31 @@ class Rotationpoint(CollisionObj):
         return 3
 
 class lineMover(CollisionObj):
-    def __init__(self,CollisionRect,speed,direction,movingplatforms):#direction(x,y)
-        CollisionObj.__init__(self,CollisionRect,CollisionRect)
+    def __init__(self,x1,y1,x2,y2,speed):#direction(x,y)
+        CollisionObj.__init__(self,Rect(x1,x1,10,10),Rect(x1,x1,10,10))
         self.speed = speed
-        self.point1x
-        self.point2x
-        self.point1y
-        self.point2y
-        self.platforms = movingplatforms
+        self.point1x=x1
+        self.point2x=x2
+        self.point1y=y1
+        self.slope = (y1-y2)/(x1-x2)
         self.directions = []
-        for p in self.platfroms:
-            self.directions.append(direction)
+        self.platforms = []
     def add(self,direction,movingplatform):
         self.platforms.append(movingplatform)
         self.directions.append(direction)
     def Update(self):
-        for i in range(len(self.plaforms)):
+        for i in range(len(self.platforms)):
             x=None
-            y=None
-            if(self.directions[i][0]>0):
-                x = self.platforms[i].collisionRect.centerx + self.directions[i][0]*speed
+            y=100
+            if(self.directions[i]>0):
+                x = self.platforms[i].collisionRect.centerx + self.directions[i]*self.speed
                 if(x>self.point2x):
                     x=self.point2x
-                    self.directions[i][0]*-1
+                    self.directions[i]=self.directions[i]*-1
             else:
-                x = self.platforms[i].collisionRect.centerx + self.directions[i][0]*speed
+                x = self.platforms[i].collisionRect.centerx + self.directions[i]*self.speed
                 if(x<self.point1x):
                     x=self.point1x
-                    self.directions[i][0]*-1
-
-            if(self.directions[i][1]>0):
-                y = self.platforms[i].collisionRect.centerx + self.directions[i][1]*speed
-                if(y>self.point2y):
-                    y=self.point2y
-                    self.directions[i][1]*-1
-            else:
-                y = self.platforms[i].collisionRect.centerx + self.directions[i][1]*speed
-                if(y<self.point1y):
-                    y=self.point1y
-                    self.directions[i][1]*-1
+                    self.directions[i]=self.directions[i]*-1
+            y= -self.slope * (self.point1x-x)+self.point1y
             self.platforms[i].move(x,y)
