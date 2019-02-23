@@ -16,9 +16,6 @@ testcandy = candy(Rect(50, 50, 20, 20))
 
 print(testcandy.id())
 
-mpf = movingplat(pygame.Rect(0,0,100,10))
-makeing = lineMover(0,0,100,50,1)
-makeing.add(1,mpf)
 
 #sprite.test()
 
