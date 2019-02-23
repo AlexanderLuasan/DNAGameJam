@@ -8,8 +8,12 @@ from pygame import Rect
 import levelload
 from spritesheet import sprite
 from Rotator import Rotationpoint
+from candy import candy
 
 
+testcandy = candy(Rect(50, 50, 20, 20))
+testcandy.getDrawing()
+print(testcandy.id())
 
 
 #sprite.test()
