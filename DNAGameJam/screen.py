@@ -69,6 +69,7 @@ class window():
                 d.line(self.screen,Color(160, 160, 160, 255), (i.getCollision().center), (CollisionObj.getCollision().centerx,CollisionObj.getCollision().centery), 1)
         elif CollisionObj.id() == 4:
             imgnum = CollisionObj.imgnumber
+            CollisionObj.Update()
             if(CollisionObj.frame>=len(thingpicup.images[imgnum])):
                 CollisionObj.frame=0
 
