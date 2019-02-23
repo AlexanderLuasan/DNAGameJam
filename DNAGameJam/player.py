@@ -5,7 +5,7 @@ speedx = 3
 gravity = 0.5
 gravityspeed = 2
 countindexvar = 0.5
-framespeed = 2
+framespeed = 1
 class player(CollisionObj):
     def __init__(self,CollisionRect):
        CollisionObj.__init__(self,CollisionRect,CollisionRect)
