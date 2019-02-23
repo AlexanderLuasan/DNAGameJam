@@ -2,7 +2,7 @@ from xml.dom import minidom
 import pygame
 
 candysize = 40
-spritescale = 2
+spritescale = 1
 class collections:
     def __init__ (self,imgfiles):
         self.images = []
@@ -18,11 +18,11 @@ class collections:
 
 class sprite():
     def __init__ (self, filename):
-        myframe = minidom.parse('sprite.tmx')
+        myframe = minidom.parse('newsprite.tmx')
         animationsets = myframe.getElementsByTagName('objectgroup')
 
        
-        self.parent = pygame.image.load("50365.png")
+        self.parent = pygame.image.load("new_sprite.png")
 
         self.dictionary = {}
         aninames = []
