@@ -69,3 +69,16 @@ class window():
         pass
     def drawimg(self,rect,surface):
         self.screen.blit(surface,rect)
+    def drawbackground(self,backgroundclass):
+        loopoffsetx = -self.camx%backgroundclass.width
+        loopoffsety = -self.camy%backgroundclass.width
+
+
+        startx = 10
+        starty = 10
+        screenwidth = 400 
+        screenheight= 600
+        self.screen.blit(backgroundclass.parent,Rect(startx,starty,100,100),area = Rect(loopoffsetx,loopoffsety,screenwidth,screenheight))
+        if(loopoffsetx+400>backgroundclass.width):
+            neededx = (loopoffsetx+400)-backgroundclass.width
+            self.screen.blit(backgroundclass.parent,Rect(startx+screenwidth-neededx,starty,100,100),area = Rect(0,loopoffsety,neededx,screenheight))

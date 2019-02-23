@@ -6,7 +6,7 @@ from plat import plat
 from plat import movingplat
 from pygame import Rect
 import levelload
-from spritesheet import sprite
+from spritesheet import sprite, backgroundimg
 from Rotator import Rotationpoint
 from candy import candy
 from Rotator import lineMover
@@ -47,7 +47,7 @@ starimg = pygame.image.load("star.jpg")
 starimg = pygame.transform.scale(starimg,(40,40))
 
 
-
+back = backgroundimg(0,0,"background.jpg")
 
 
 cammramovement = [False,False,False,False]
@@ -164,6 +164,7 @@ while(not done):
     #screen.
     #screen.blit(starimg,shape)
     gamescreen.clear()
+    gamescreen.drawbackground(back)
     #gamescreen.drawRect(shape)
     gamescreen.drawObj(mpf)
     for i in range(len(gamestate.platforms)):

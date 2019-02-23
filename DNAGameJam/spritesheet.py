@@ -42,4 +42,11 @@ class sprite():
                 self.dictionary[key]["image"][i] = (self.dictionary[key]["image"][i],pygame.transform.flip(self.dictionary[key]["image"][i],True,False))
 
 
+class backgroundimg():
+    def __init__ (self, x, y,filename):
+        self.originx = x 
+        self.originy = y
         
+        self.parent = pygame.image.load(filename)
+        self.width = self.parent.get_width()
+        self.height = self.parent.get_height()
