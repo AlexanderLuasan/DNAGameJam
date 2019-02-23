@@ -11,6 +11,8 @@ class player(CollisionObj):
        self.vely = 0
        self.onground=False
        self.keys = [False,False,False,False,False]#left right up down
+       self.countindex = 0
+       
     def setkey(self,index,value):
         if(index==4 and value == True):
             if(self.onground):
@@ -20,7 +22,10 @@ class player(CollisionObj):
         self.onground=False
         self.vely=-10
     def Update(self):
-        self.index+=1
+        self.countindex += 0.5
+        if(self.countindex==4):
+            self.index+=1
+            self.countindex = 0
         if(self.keys[0]==True):#speed control
             self.velx+=1
         if(self.keys[1]==True):
