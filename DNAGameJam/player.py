@@ -15,7 +15,7 @@ class player(CollisionObj):
        self.right = 0
        self.keys = [False,False,False,False,False]#left right up down
        self.countindex = 0
-       
+       self.score = 0
     def setkey(self,index,value):
         if(index==4 and value == True):
             if(self.onground):
@@ -86,6 +86,11 @@ class player(CollisionObj):
                 #self.collisionRect.y=self.collisionRect.y+self.vely
                 self.collisionRect.x=self.collisionRect.x+self.velx
                 return
+        if (other.id() == 4):
+            self.score += 1
+            other.collisionRect.x = -50
+            other.collisionRect.y = -50
+            print(self.score)
         self.collisionRect.y=self.collisionRect.y+self.vely
         if(self.collisionRect.colliderect(other.getCollision())):
             if(self.vely>0):
