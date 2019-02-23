@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="80" height="10" tilewidth="50" tileheight="50" infinite="0" nextlayerid="7" nextobjectid="59">
- <tileset firstgid="1" name="background" tilewidth="50" tileheight="50" tilecount="112" columns="16">
+ <tileset firstgid="1" name="background" tilewidth="50" tileheight="50" tilecount="0" columns="16">
   <image source="../../../../../OneDrive/바탕 화면/gamegem/background.jpg" width="800" height="375"/>
  </tileset>
  <layer id="1" name="圖塊層 1" width="80" height="10">
@@ -42,9 +42,9 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="48" name="5" x="2403" y="360" width="133" height="47">
+  <object id="48" name="5" x="2476" y="360" width="60" height="46">
    <properties>
-    <property name="speed" value="20"/>
+    <property name="speed" value="10"/>
    </properties>
    <ellipse/>
   </object>
@@ -56,7 +56,7 @@
   </object>
   <object id="52" name="7" x="2957" y="421" width="52" height="47">
    <properties>
-    <property name="speed" value="20"/>
+    <property name="speed" value="12"/>
    </properties>
    <ellipse/>
   </object>
