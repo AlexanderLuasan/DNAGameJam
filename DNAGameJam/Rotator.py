@@ -15,6 +15,7 @@ class Rotationpoint(CollisionObj):
         CollisionObj.__init__(self,CollisionRect,CollisionRect)
         self.platforms = movingplatforms
         self.vectors = []
+
         self.degpc = 360/(periodofrotation*60)
         for plat in self.platforms:
             x=self.collisionRect.centerx - plat.getCollision().centerx
