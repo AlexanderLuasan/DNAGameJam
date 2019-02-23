@@ -1,7 +1,9 @@
 from CollisionObj import CollisionObj
 maxspeed = 3
+speedx = 1
 gravity = 0.2
-
+gravityspeed = 2
+countindexvar = 0.5
 class player(CollisionObj):
     def __init__(self,CollisionRect):
        CollisionObj.__init__(self,CollisionRect,CollisionRect)
@@ -26,14 +28,14 @@ class player(CollisionObj):
         self.onground=False
         self.vely=-10
     def Update(self):
-        self.countindex += 0.5
+        self.countindex += countindexvar
         if(self.countindex==4):
             self.index+=1
             self.countindex = 0
         if(self.keys[0]==True):#speed control
-            self.velx+=1
+            self.velx+=speedx
         if(self.keys[1]==True):
-            self.velx-=1
+            self.velx-=speedx
         if(self.velx>maxspeed):
             self.velx=maxspeed
         if(self.velx<-maxspeed):
@@ -41,7 +43,7 @@ class player(CollisionObj):
         #gravity
 
         if(self.keys[4]==True):
-            self.vely+=gravity/2
+            self.vely+=gravity/gravityspeed
         else:
             self.vely+=gravity
         #if(self.keys[2]==True):
@@ -75,7 +77,6 @@ class player(CollisionObj):
     def id(self):
         return 0
     def collide(self,other):
-        
         self.collisionRect.x=self.collisionRect.x-self.velx
         self.collisionRect.y=self.collisionRect.y-self.vely
 

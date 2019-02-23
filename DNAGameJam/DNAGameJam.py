@@ -8,7 +8,13 @@ from pygame import Rect
 import levelload
 from spritesheet import sprite
 from Rotator import Rotationpoint
+from candy import candy
 from Rotator import lineMover
+
+
+testcandy = candy(Rect(50, 50, 20, 20))
+testcandy.getDrawing()
+print(testcandy.id())
 
 mpf = movingplat(pygame.Rect(0,0,100,10))
 makeing = lineMover(0,0,100,50,1)
