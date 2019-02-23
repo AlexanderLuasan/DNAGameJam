@@ -73,14 +73,20 @@ class window():
         self.screen.blit(surface,rect)
     def drawbackground(self,backgroundclass):
         loopoffsetx = -self.camx%backgroundclass.width
-        loopoffsety = -self.camy%backgroundclass.width
-
-
-        startx = 10
-        starty = 10
-        screenwidth = 400 
-        screenheight= 600
+        loopoffsety = -self.camy%backgroundclass.height
+        startx = 0
+        starty = 0
+        screenwidth = self.screen.get_width()
+        screenheight= self.screen.get_height()
         self.screen.blit(backgroundclass.parent,Rect(startx,starty,100,100),area = Rect(loopoffsetx,loopoffsety,screenwidth,screenheight))
-        if(loopoffsetx+400>backgroundclass.width):
-            neededx = (loopoffsetx+400)-backgroundclass.width
+        if(loopoffsetx+screenwidth>backgroundclass.width):
+            neededx = (loopoffsetx+screenwidth)-backgroundclass.width
             self.screen.blit(backgroundclass.parent,Rect(startx+screenwidth-neededx,starty,100,100),area = Rect(0,loopoffsety,neededx,screenheight))
+        if(loopoffsety+screenheight>backgroundclass.height):
+            neededy = (loopoffsety+screenheight)-backgroundclass.height
+            self.screen.blit(backgroundclass.parent,Rect(startx,starty+screenheight-neededy,100,100),area = Rect(loopoffsetx,0,screenwidth,neededy))
+        if(loopoffsetx+screenwidth>backgroundclass.width):
+            if(loopoffsety+screenheight>backgroundclass.height):
+                neededx = (loopoffsetx+screenwidth)-backgroundclass.width      
+                neededy = (loopoffsety+screenheight)-backgroundclass.height
+                self.screen.blit(backgroundclass.parent,Rect(startx+screenwidth-neededx,starty+screenheight-neededy,100,100),area = Rect(0,0,neededx,neededy))
