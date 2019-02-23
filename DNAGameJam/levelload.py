@@ -2,6 +2,9 @@ from xml.dom import minidom
 import pygame
 from plat import plat
 
+class level():
+    def __init__ (self, filename)
+
 def load():
     mydoc = minidom.parse('test.tmx')
     platform = mydoc.getElementsByTagName('object')
