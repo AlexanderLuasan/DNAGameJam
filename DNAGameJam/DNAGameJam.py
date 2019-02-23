@@ -123,9 +123,11 @@ while(not done):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
         xvel= xvel * -1;
+    for u in gamestate.updaters:
+        u.Update()
     hero.Update()
 
-
+    
     for i in range(len(gamestate.platforms)):
         if(hero.getCollision().colliderect(gamestate.platforms[i].getCollision())):
             hero.collide(gamestate.platforms[i])

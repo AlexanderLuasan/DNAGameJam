@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="80" height="10" tilewidth="50" tileheight="50" infinite="0" nextlayerid="3" nextobjectid="35">
- <layer id="1" name="圖塊層 1" width="80" height="10">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="80" height="10" tilewidth="50" tileheight="50" infinite="0" nextobjectid="41">
+ <layer name="圖塊層 1" width="80" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -14,14 +14,28 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="2" name="Platforms">
-  <object id="16" x="94" y="352" width="506" height="72"/>
+ <objectgroup name="Updaters">
+  <object id="35" name="0" x="1844" y="159" width="93" height="93">
+   <properties>
+    <property name="speed" value="12"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="37" name="1" x="215" y="177" width="93" height="93">
+   <properties>
+    <property name="speed" value="12"/>
+   </properties>
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Platforms">
+  <object id="16" x="54" y="332" width="506" height="72"/>
   <object id="17" x="603" y="173" width="206" height="51"/>
   <object id="18" x="794" y="352" width="400" height="51"/>
   <object id="19" x="1100" y="118" width="58" height="164"/>
   <object id="20" x="1327" y="421" width="518" height="58"/>
   <object id="21" x="1470" y="194" width="169" height="42"/>
-  <object id="22" x="1700" y="306" width="161" height="30"/>
+  <object id="22" name="0" x="1700" y="306" width="161" height="30"/>
   <object id="23" x="2033" y="279" width="294" height="60"/>
   <object id="24" x="2430" y="448" width="370" height="34"/>
   <object id="25" x="2345" y="118" width="382" height="55"/>
@@ -34,5 +48,6 @@
   <object id="32" x="3815" y="103" width="100" height="197"/>
   <object id="33" x="509" y="282" width="136" height="33"/>
   <object id="34" x="558" y="221" width="27" height="34"/>
+  <object id="40" name="1" x="77" y="349" width="173" height="34"/>
  </objectgroup>
 </map>

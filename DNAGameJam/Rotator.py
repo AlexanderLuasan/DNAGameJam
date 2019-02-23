@@ -21,7 +21,7 @@ class Rotationpoint(CollisionObj):
             y=self.collisionRect.centery - plat.getCollision().centery
             self.vectors.append(Vector2(x,y))
     def add(self,movingplatform):
-        movingplat.append(movingplatform)
+        self.platforms.append(movingplatform)
         x=self.collisionRect.centerx - movingplatform.getCollision().centerx
         y=self.collisionRect.centery - movingplatform.getCollision().centery
         self.vectors.append(Vector2(x,y))

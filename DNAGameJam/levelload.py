@@ -1,6 +1,6 @@
 from xml.dom import minidom
 import pygame
-from plat import plat
+from plat import plat,movingplat
 from Rotator import Rotationpoint
 
 
@@ -13,15 +13,20 @@ class level():
         for objectGroup in objectGroups:
             if(objectGroup.attributes["name"].value=="Updaters"):
                 objects = objectGroup.getElementsByTagName('object')
-                for obj in objects:
-                    for i in range(len(objects)):
+                for i in range(len(objects)):
                         self.updaters.append(None)
+                for obj in objects:
+                    
                     if(len(obj.getElementsByTagName("ellipse"))>0):
                         x = int(obj.attributes["x"].value)
                         y = int(obj.attributes["y"].value)
                         w = int(obj.attributes["width"].value)
                         ind = int(obj.attributes["name"].value)
-                        sp = int(obj.attributes["speed"].value)
+                        sp = 1
+                        
+                        for p in obj.getElementsByTagName("property"):
+                            if(p.attributes["name"].value == "speed"):
+                                sp=int(p.attributes["value"].value)
                         self.updaters[ind]=Rotationpoint(pygame.Rect(x+w/2-5,y+w/2-5,10,10),sp,[])
         for objectGroup in objectGroups:
             if(objectGroup.attributes["name"].value=="Platforms"):
@@ -32,11 +37,14 @@ class level():
                     y = int(obj.attributes['y'].value)
                     w = int(obj.attributes['width'].value)
                     h = int(obj.attributes['height'].value)
-                    p = plat(pygame.Rect(x,y,w,h))
-                    self.platforms.append(p)
+                    p=None
                     if(obj.hasAttribute("name")):
-                        ind = int(obj.hasAttribute("name"))
+                        p = movingplat(pygame.Rect(x,y,w,h))
+                        ind = int(obj.attributes["name"].value)
                         self.updaters[ind].add(p)
+                    else:
+                        p = plat(pygame.Rect(x,y,w,h))
+                    self.platforms.append(p)
         print(len(plafroms))
                     
 
