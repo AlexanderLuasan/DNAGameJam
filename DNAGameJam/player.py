@@ -2,7 +2,7 @@ from CollisionObj import CollisionObj
 maxspeed = 3
 speedx = 1
 gravity = 0.2
-gravityvertical = 2
+gravityspeed = 2
 countindexvar = 0.5
 class player(CollisionObj):
     def __init__(self,CollisionRect):
