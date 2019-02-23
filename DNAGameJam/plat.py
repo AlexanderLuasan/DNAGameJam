@@ -10,8 +10,12 @@ class plat(CollisionObj):
 class movingplat(plat):
     def __init__(self, CollisionRect):
         plat.__init__(self, CollisionRect)
+        self.stander=None
     def move(self, x, y):
         self.collisionRect.centerx = x
         self.collisionRect.centery = y
     def id(self):
         return 2
+    def collide(self,OtherObj):
+        self.stander = OtherObj
+
