@@ -13,7 +13,7 @@ from Rotator import lineMover
 
 
 testcandy = candy(Rect(50, 50, 20, 20))
-testcandy.getDrawing()
+
 print(testcandy.id())
 
 mpf = movingplat(pygame.Rect(0,0,100,10))
