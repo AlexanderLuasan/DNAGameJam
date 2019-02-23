@@ -27,7 +27,7 @@ pygame.init()
 
 pygame.mixer.music.load("flatfoot.mp3")
 pygame.mixer.music.play()
-hero = player(Rect(0,0,14,30))
+hero = player(Rect(gamestate.px,gamestate.py,14,30))
 #jonathan's comment
 timmer = pygame.time.Clock()
 
