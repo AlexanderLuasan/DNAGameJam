@@ -2,7 +2,7 @@ from xml.dom import minidom
 import pygame
 
 candysize = 40
-
+spritescale = 2
 class collections:
     def __init__ (self,imgfiles):
         self.images = []
@@ -45,12 +45,17 @@ class sprite():
 
             for f in self.dictionary[key]["frame"]:
                 self.dictionary[key]["image"].append(self.parent.subsurface(f))
+            for f in range(len(self.dictionary[key]["frame"])):#divide 2
+                w = self.dictionary[key]["image"][f].get_width()
+                h = self.dictionary[key]["image"][f].get_height()
+                self.dictionary[key]["image"][f] = pygame.transform.scale(self.dictionary[key]["image"][f],(int(w/spritescale),int(h/spritescale)))
+                
             for i in range(len(self.dictionary[key]["frame"])):
-                x=self.dictionary[key]["frame"][i].x-self.dictionary[key]["hitbox"][i].x
-                y=self.dictionary[key]["frame"][i].y-self.dictionary[key]["hitbox"][i].y
-                w=self.dictionary[key]["frame"][i].width
-                h=self.dictionary[key]["frame"][i].height
-                self.dictionary[key]["frame"][i] = pygame.Rect(x,y,w,h)
+                x=(self.dictionary[key]["frame"][i].x-self.dictionary[key]["hitbox"][i].x)/spritescale
+                y=(self.dictionary[key]["frame"][i].y-self.dictionary[key]["hitbox"][i].y)/spritescale
+                w=self.dictionary[key]["frame"][i].width/spritescale
+                h=self.dictionary[key]["frame"][i].height/spritescale
+                self.dictionary[key]["frame"][i] = pygame.Rect(int(x),int(y),int(w),int(h))
 
         for key in self.dictionary.keys():
             for i in range(len(self.dictionary[key]["image"])):
