@@ -49,6 +49,8 @@ class level():
                     
 
 
+
+
 def load():
     mydoc = minidom.parse('test.tmx')
     platform = mydoc.getElementsByTagName('object')
