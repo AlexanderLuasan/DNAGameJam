@@ -32,16 +32,15 @@ class window():
         x = CollisionObj.getCollision().x+self.camx
         y = CollisionObj.getCollision().y+self.camy
         if CollisionObj.id() == 0:
-            if(CollisionObj.index>= len(imageFile.drawbox)):
+            if(CollisionObj.index>= len(imageFile.dictionary["Walking"]["frame"])):
                 CollisionObj.index=0
-            h = imageFile.drawbox[CollisionObj.index].h
-            w = imageFile.drawbox[CollisionObj.index].w
-            x -=  imageFile.drawbox[CollisionObj.index].x
-            y -=  imageFile.drawbox[CollisionObj.index].y
-            if(CollisionObj.velx>0):
-                self.drawimg(Rect(x,y,w,h),imageFile.frames[CollisionObj.index])
-            else:
-                self.drawimg(Rect(x,y,w,h),imageFile.fliped[CollisionObj.index])
+
+            h = imageFile.dictionary["Walking"]["frame"][CollisionObj.index].h
+            w = imageFile.dictionary["Walking"]["frame"][CollisionObj.index].w
+            x +=  imageFile.dictionary["Walking"]["frame"][CollisionObj.index].x
+            y +=  imageFile.dictionary["Walking"]["frame"][CollisionObj.index].y
+            self.drawimg(Rect(x,y,w,h),imageFile.dictionary["Walking"]["image"][CollisionObj.index])
+
             #d.rect(self.screen,Color(0, 0, 0, 255),Rect(x,y,w,h),0)
         elif CollisionObj.id() == 1:
             d.rect(self.screen,Color(240, 100, 59, 255),Rect(x,y,w,h),0)

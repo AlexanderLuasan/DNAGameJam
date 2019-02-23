@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="447" tileheight="687" infinite="0" nextlayerid="4" nextobjectid="24">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="447" tileheight="687" infinite="0" nextobjectid="31">
  <tileset firstgid="1" name="50365" tilewidth="447" tileheight="687" tilecount="1" columns="1">
   <image source="50365.png" width="447" height="687"/>
  </tileset>
- <layer id="1" name="Tile Layer 1" width="1" height="1">
+ <layer name="Tile Layer 1" width="1" height="1">
   <data encoding="csv">
 1
 </data>
  </layer>
- <objectgroup id="2" name="frame">
+ <objectgroup name="frame Walking">
   <object id="9" name="frame2" x="97" y="1" width="16" height="32"/>
   <object id="10" name="frame3" x="114" y="1" width="16" height="32"/>
   <object id="11" name="frame4" x="131" y="1" width="16" height="32"/>
  </objectgroup>
- <objectgroup id="3" name="hitbox">
+ <objectgroup name="hitbox idle">
+  <object id="26" x="81" y="3" width="14" height="30"/>
+ </objectgroup>
+ <objectgroup name="frame jump">
+  <object id="28" name="frame1" x="165" y="1" width="16" height="32"/>
+ </objectgroup>
+ <objectgroup name="hitbox jump">
+  <object id="29" x="166" y="3" width="14" height="30"/>
+ </objectgroup>
+ <objectgroup name="frame idle">
+  <object id="25" name="frame0" x="80" y="1" width="16" height="32"/>
+ </objectgroup>
+ <objectgroup name="hitbox Walking">
   <object id="20" name="hitbox2" x="98" y="3" width="14" height="30"/>
   <object id="21" name="hitbox3" x="115" y="3" width="14" height="30"/>
   <object id="22" name="hitbox4" x="132" y="3" width="14" height="30"/>
