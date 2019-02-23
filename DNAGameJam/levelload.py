@@ -24,7 +24,7 @@ class level():
                         sp = int(obj.attributes["speed"].value)
                         self.updaters[ind]=Rotationpoint(pygame.Rect(x+w/2-5,y+w/2-5,10,10),sp,[])
         for objectGroup in objectGroups:
-            if(objectGroup.attributes["name"].value=="Platfroms"):
+            if(objectGroup.attributes["name"].value=="Platforms"):
 
                 plafroms = objectGroup.getElementsByTagName('object')
                 for obj in plafroms:

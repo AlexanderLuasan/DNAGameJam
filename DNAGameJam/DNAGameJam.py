@@ -20,12 +20,12 @@ gamestate = levelload.level("newmap.tmx")
 
 pygame.init()
 
-
+hero = player(Rect(0,0,14,30))
 #jonathan's comment
 timmer = pygame.time.Clock()
 
-swidth = 600
-sheight = 400
+swidth = 800
+sheight = 500
 pygame.display.set_mode([swidth,sheight])
 gamescreen=screen.window(pygame.display.get_surface())
 
@@ -141,16 +141,19 @@ while(not done):
     if(cammramovement[3]==True):
         gamescreen.changey(-1)
 
-    
-    if hero.getCollision().right + gamescreen.camx < 0:
-        done = True
-    if hero.getCollision().left + gamescreen.camx - 600 > 0:
-        done = True
-    if hero.getCollision().top + gamescreen.camy < 0:
-        done = True
-    if hero.getCollision().bottom + gamescreen.camy - 400 > 0:
-        done = True
-    print(gamescreen.camy + sheight, hero.getCollision().top)
+    if(False):
+        if hero.getCollision().right + gamescreen.camx < 0:
+            done = True
+        if hero.getCollision().left + gamescreen.camx - 600 > 0:
+            done = True
+        if hero.getCollision().top + gamescreen.camy < 0:
+            done = True
+        if hero.getCollision().bottom + gamescreen.camy - 400 > 0:
+            done = True
+        print(gamescreen.camy + sheight, hero.getCollision().top)
+
+
+
     #screen.
     #screen.blit(starimg,shape)
     gamescreen.clear()
@@ -159,7 +162,7 @@ while(not done):
         gamescreen.drawObj(gamestate.platforms[i])
 
     gamescreen.drawObj(hero)
-    gamescreen.drawRect(rp.getCollision())
+    #gamescreen.drawRect(rp.getCollision())
     gamescreen.drawimg(shape,starimg)
     pygame.display.flip()
 
