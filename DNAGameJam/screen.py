@@ -7,7 +7,7 @@ from spritesheet import sprite,collections
 
 
 imageFile = sprite('sprite.tmx')
-thingpicup = collections(["bluecandy.png"])
+thingpicup = collections(["bluecandy.png","star.jpg"])
 
 class window():
     def __init__(self,screenSurface):
@@ -73,7 +73,7 @@ class window():
             if(CollisionObj.frame>=len(thingpicup.images[imgnum])):
                 CollisionObj.frame=0
 
-            im = thingpicup.images[0][CollisionObj.frame]
+            im = thingpicup.images[imgnum][CollisionObj.frame]
             r = im.get_rect()
             r.center = Rect(x,y,w,h).center
             d.rect(self.screen,Color(66, 220, 224, 255),Rect(x,y,w,h),0)
