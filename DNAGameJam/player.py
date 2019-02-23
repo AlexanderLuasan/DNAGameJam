@@ -43,7 +43,7 @@ class player(CollisionObj):
         #gravity
 
         if(self.keys[4]==True):
-            self.vely+=gravity/gravityvertical
+            self.vely+=gravity/gravityspeed
         else:
             self.vely+=gravity
         #if(self.keys[2]==True):
