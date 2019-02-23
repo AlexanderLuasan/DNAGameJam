@@ -6,31 +6,26 @@ from plat import plat
 from plat import movingplat
 from pygame import Rect
 import levelload
-#from spritesheet import sprite
+from spritesheet import sprite
 from Rotator import Rotationpoint
 
-#imageFile = spritesheet.sprite('sprite.tmx')
+
 
 
 #sprite.test()
 collisionObjlist = levelload.load()
 
+gamestate = levelload.level("newmap.tmx")
+
 
 pygame.init()
 
-pf = plat(Rect(0,0,40,40))
-mpf = movingplat(Rect(300, 50, 10, 10))
-hero = player(Rect(60, 60, 30, 30)) 
-
-rp = Rotationpoint(Rect(300,300,10,10),12,[mpf])
-
-
-
+hero = player(Rect(0,0,14,30))
 #jonathan's comment
 timmer = pygame.time.Clock()
 
-swidth = 600
-sheight = 400
+swidth = 800
+sheight = 500
 pygame.display.set_mode([swidth,sheight])
 gamescreen=screen.window(pygame.display.get_surface())
 
@@ -45,19 +40,6 @@ starimg = pygame.transform.scale(starimg,(40,40))
 
 
 
-
-# collistionObjlist.append(CollisionObj.CollisionObj(Rect(5, 5, 10, 10), Rect(15, 15, 10, 10)))
-# collistionObjlist.append(CollisionObj.CollisionObj(Rect(50, 50, 100, 10), Rect(50, 50, 100, 10)))
-# collistionObjlist.append(CollisionObj.CollisionObj(Rect(70, 80, 10, 10), Rect(70, 80, 10, 10)))
-# collistionObjlist.append(CollisionObj.CollisionObj(Rect(500, 300, 90, 90), Rect(70, 80, 10, 10)))
-# collistionObjlist.append(plat(Rect(350, 300, 60, 60)))
-# collistionObjlist.append(plat(Rect(400, 300, 60, 60)))
-
-collisionObjlist.append(mpf)
-collisionObjlist.append(pf)
-#collisionObjlist.append(hero)
-collisionObjlist.append(rp)
-
 for k in range(len(collisionObjlist)):
     print(collisionObjlist[k].id())
 
@@ -67,6 +49,8 @@ for k in range(len(collisionObjlist)):
 cammramovement = [False,False,False,False]
 
 done = False
+index = 0
+
 while(not done):
     for event in pygame.event.get():
         if (event.type == 12):
@@ -135,49 +119,53 @@ while(not done):
     shape.x = shape.x+xvel
     shape.y = shape.y+yvel
 
-    rp.Update()
     if(shape.bottom>sheight or shape.top<0):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
         xvel= xvel * -1;
+    for u in gamestate.updaters:
+        u.Update()
     hero.Update()
 
-
-    for i in range(len(collisionObjlist)):
-        if(hero.getCollision().colliderect(collisionObjlist[i].getCollision())):
-            hero.collide(collisionObjlist[i])
-
+    
+    for i in range(len(gamestate.platforms)):
+        if(hero.getCollision().colliderect(gamestate.platforms[i].getCollision())):
+            hero.collide(gamestate.platforms[i])
+            gamestate.platforms[i].collide(hero)
 
     #cammra movement
     if(cammramovement[0]==True):
-        gamescreen.changex(1)
+        gamescreen.changex(3)
     if(cammramovement[1]==True):
-        gamescreen.changex(-1)
+        gamescreen.changex(-3)
     if(cammramovement[2]==True):
-        gamescreen.changey(1)
+        gamescreen.changey(3)
     if(cammramovement[3]==True):
-        gamescreen.changey(-1)
+        gamescreen.changey(-3)
 
-    
-    if hero.getCollision().right + gamescreen.camx < 0:
-        done = True
-    if hero.getCollision().left + gamescreen.camx - 600 > 0:
-        done = True
-    if hero.getCollision().top + gamescreen.camy < 0:
-        done = True
-    if hero.getCollision().bottom + gamescreen.camy - 400 > 0:
-        done = True
-    print(gamescreen.camy + sheight, hero.getCollision().top)
+    if(False):
+        if hero.getCollision().right + gamescreen.camx < 0:
+            done = True
+        if hero.getCollision().left + gamescreen.camx - 600 > 0:
+            done = True
+        if hero.getCollision().top + gamescreen.camy < 0:
+            done = True
+        if hero.getCollision().bottom + gamescreen.camy - 400 > 0:
+            done = True
+        print(gamescreen.camy + sheight, hero.getCollision().top)
+
+
+
     #screen.
     #screen.blit(starimg,shape)
     gamescreen.clear()
-    gamescreen.drawRect(shape)
-    for i in range(len(collisionObjlist)):
-        gamescreen.drawObj(collisionObjlist[i])
+    #gamescreen.drawRect(shape)
+    for i in range(len(gamestate.platforms)):
+        gamescreen.drawObj(gamestate.platforms[i])
 
-    gamescreen.drawRect(hero.getCollision())
-    gamescreen.drawRect(rp.getCollision())
-
+    gamescreen.drawObj(hero)
+    #gamescreen.drawRect(rp.getCollision())
+    #gamescreen.drawimg(shape,starimg)
     pygame.display.flip()
 
     timmer.tick(60)
