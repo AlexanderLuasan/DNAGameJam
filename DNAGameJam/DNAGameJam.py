@@ -19,7 +19,7 @@ collisionObjlist = levelload.load()
 pygame.init()
 
 pf = plat(Rect(0,0,40,40))
-mpf = movingplat(Rect(300, 50, 10, 10))
+mpf = movingplat(Rect(300, 50, 100, 100))
 hero = player(Rect(60, 60, 14, 30)) 
 
 rp = Rotationpoint(Rect(300,300,10,10),12,[mpf])
