@@ -17,7 +17,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="2" name="Updaters">
+ <objectgroup id="2" name="Updaters" visible="0">
   <object id="35" name="0" x="1893" y="245" width="72" height="68">
    <properties>
     <property name="speed" value="1"/>
@@ -73,7 +73,7 @@
    <ellipse/>
   </object>
  </objectgroup>
- <objectgroup id="3" name="Platforms">
+ <objectgroup id="3" name="Platforms" visible="0">
   <object id="16" x="54" y="332" width="506" height="72"/>
   <object id="17" x="603" y="173" width="206" height="51"/>
   <object id="18" x="794" y="352" width="400" height="51"/>
