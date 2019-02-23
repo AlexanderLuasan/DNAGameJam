@@ -11,6 +11,15 @@ class level():
         objectGroups = mydoc.getElementsByTagName('objectgroup')
         self.updaters = []
         self.platforms = []
+
+        for objectGroup in objectGroups:
+            if(objectGroup.attributes["name"].value=="Control"):
+                objects = objectGroup.getElementsByTagName('object')
+                for obj in objects:
+                    if(obj.attributes["name"].value == "playerstart"):
+                        self.px = int(obj.attributes["x"].value)
+                        self.py = int(obj.attributes["y"].value)
+
         for objectGroup in objectGroups:
             if(objectGroup.attributes["name"].value=="Updaters"):
                 objects = objectGroup.getElementsByTagName('object')
