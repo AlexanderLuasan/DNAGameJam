@@ -20,9 +20,12 @@ class Rotationpoint(CollisionObj):
             x=self.collisionRect.centerx - plat.getCollision().centerx
             y=self.collisionRect.centery - plat.getCollision().centery
             self.vectors.append(Vector2(x,y))
+    def add(self,movingplatform):
+        movingplat.append(movingplatform)
+        x=self.collisionRect.centerx - movingplatform.getCollision().centerx
+        y=self.collisionRect.centery - movingplatform.getCollision().centery
+        self.vectors.append(Vector2(x,y))
     def Update(self):
-        
-        
         self.count = 0
         for i in range(len(self.vectors)):
             self.vectors[i]=self.vectors[i].rotate(self.degpc*math.pi/180)
