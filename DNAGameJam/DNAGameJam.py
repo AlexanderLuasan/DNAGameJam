@@ -157,13 +157,13 @@ while(not done):
     #screen.
     #screen.blit(starimg,shape)
     gamescreen.clear()
-    gamescreen.drawRect(shape)
+    #gamescreen.drawRect(shape)
     for i in range(len(gamestate.platforms)):
         gamescreen.drawObj(gamestate.platforms[i])
 
     gamescreen.drawObj(hero)
     #gamescreen.drawRect(rp.getCollision())
-    gamescreen.drawimg(shape,starimg)
+    #gamescreen.drawimg(shape,starimg)
     pygame.display.flip()
 
     timmer.tick(60)
