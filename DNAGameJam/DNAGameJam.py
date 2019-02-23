@@ -16,9 +16,6 @@ testcandy = candy(Rect(50, 50, 20, 20))
 
 #print(testcandy.id())
 
-mpf = movingplat(pygame.Rect(0,0,100,10))
-makeing = lineMover(0,0,100,50,1)
-makeing.add(1,mpf)
 
 #sprite.test()
 
@@ -28,6 +25,8 @@ gamestate = levelload.level("newmap.tmx")
 
 pygame.init()
 
+pygame.mixer.music.load("flatfoot.mp3")
+pygame.mixer.music.play()
 hero = player(Rect(0,0,14,30))
 #jonathan's comment
 timmer = pygame.time.Clock()
@@ -130,7 +129,6 @@ while(not done):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
         xvel= xvel * -1;
-    makeing.Update()
     for u in gamestate.updaters:
         u.Update()
     hero.Update()
@@ -169,7 +167,6 @@ while(not done):
     gamescreen.clear()
     gamescreen.drawbackground(back)
     #gamescreen.drawRect(shape)
-    gamescreen.drawObj(mpf)
     for i in range(len(gamestate.platforms)):
         gamescreen.drawObj(gamestate.platforms[i])
 

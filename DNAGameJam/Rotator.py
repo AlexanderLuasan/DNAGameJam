@@ -49,9 +49,9 @@ class lineMover(CollisionObj):
         self.slope = (y1-y2)/(x1-x2)
         self.directions = []
         self.platforms = []
-    def add(self,direction,movingplatform):
+    def add(self,movingplatform):
         self.platforms.append(movingplatform)
-        self.directions.append(direction)
+        self.directions.append(1)
     def Update(self):
         for i in range(len(self.platforms)):
             x=None

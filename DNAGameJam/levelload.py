@@ -1,7 +1,7 @@
 from xml.dom import minidom
 import pygame
 from plat import plat,movingplat
-from Rotator import Rotationpoint
+from Rotator import Rotationpoint, lineMover
 from candy import candy
 
 
@@ -29,6 +29,27 @@ class level():
                             if(p.attributes["name"].value == "speed"):
                                 sp=int(p.attributes["value"].value)
                         self.updaters[ind]=Rotationpoint(pygame.Rect(x+w/2-5,y+w/2-5,10,10),sp,[])
+                    elif(len(obj.getElementsByTagName("polyline"))>0):
+                        point = obj.getElementsByTagName("polyline")[0].attributes['points'].value
+                        point=point.split(" ")
+                        for i in range(len(point)):
+                            point[i] = point[i].split(",")
+
+
+                        x = int(obj.attributes["x"].value)
+                        y = int(obj.attributes["y"].value)
+                        x1 = int(x+int(point[0][0]))
+                        x2 = int(x+int(point[1][0]))
+                        y1 = int(y+int(point[0][1]))
+                        y2 = int(y+int(point[1][1]))
+                        ind = int(obj.attributes["name"].value)
+                        sp = 1
+                        
+                        for p in obj.getElementsByTagName("property"):
+                            if(p.attributes["name"].value == "speed"):
+                                sp=int(p.attributes["value"].value)
+                        self.updaters[ind]=lineMover(x1,y1,x2,y2,sp)
+
         for objectGroup in objectGroups:
             if(objectGroup.attributes["name"].value=="Platforms"):
 
