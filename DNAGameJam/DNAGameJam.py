@@ -147,7 +147,7 @@ while(not done):
     for i in range(len(collisionObjlist)):
         if(hero.getCollision().colliderect(collisionObjlist[i].getCollision())):
             hero.collide(collisionObjlist[i])
-
+            collisionObjlist[i].collide(hero)
 
     #cammra movement
     if(cammramovement[0]==True):
