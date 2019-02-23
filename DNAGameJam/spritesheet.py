@@ -37,6 +37,9 @@ class sprite():
                 h=self.dictionary[key]["frame"][i].height
                 self.dictionary[key]["frame"][i] = pygame.Rect(x,y,w,h)
 
+        for key in self.dictionary.keys():
+            for i in range(len(self.dictionary[key]["image"])):
+                self.dictionary[key]["image"][i] = (self.dictionary[key]["image"][i],pygame.transform.flip(self.dictionary[key]["image"][i],True,False))
 
 
         
