@@ -14,7 +14,7 @@ class movingplat(plat):
     def move(self, x, y):
 
         if(self.stander != None):
-            self.stander.collisionRect.x += self.collisionRect.centerx - x
+            self.stander.collisionRect.x += x-self.collisionRect.centerx
         
         self.collisionRect.centerx = x
         self.collisionRect.centery = y
