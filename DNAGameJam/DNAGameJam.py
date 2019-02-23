@@ -14,7 +14,7 @@ from Rotator import lineMover
 
 testcandy = candy(Rect(50, 50, 20, 20))
 
-print(testcandy.id())
+#print(testcandy.id())
 
 mpf = movingplat(pygame.Rect(0,0,100,10))
 makeing = lineMover(0,0,100,50,1)
@@ -61,64 +61,67 @@ while(not done):
             done = True
         elif(event.type == 2):
             if(event.key==119):
-                print('w')
+                #print('w')
                 cammramovement[2]=True
             elif(event.key == 97):
-                print('a')
+                #print('a')
                 cammramovement[0]=True
             elif(event.key == 115):
-                print('s')
+                #print('s')
                 cammramovement[3]=True
             elif(event.key == 100):
-                print('d')
+                #print('d')
                 cammramovement[1]=True
             elif(event.key == 273):
-                print('upkey')
+                #print('upkey')
                 hero.setkey(3, True)
             elif(event.key == 276):
-                print('leftkey')
+                #print('leftkey')
                 hero.setkey(1, True)
             elif(event.key == 274):
-                print('downkey')
+                #print('downkey')
                 hero.setkey(2, True)
             elif(event.key == 275):
-                print('rightkey')
+                #print('rightkey')
                 hero.setkey(0, True)
             elif(event.key == 32):
                 hero.setkey(4,True)
             else:
-                print(event.key)
+                pass
+                #print(event.key)
         elif(event.type == 3):
             if(event.key==119):
-                print('w')
+                #print('w')
                 cammramovement[2]=False
             elif(event.key == 97):
-                print('a')
+                #print('a')
                 cammramovement[0]=False
             elif(event.key == 115):
-                print('s')
+                #print('s')
                 cammramovement[3]=False
             elif(event.key == 100):
-                print('d')
+                #print('d')
                 cammramovement[1]=False
             elif(event.key == 273):
-                print('upkey')
+                #print('upkey')
                 hero.setkey(3, False)
             elif(event.key == 276):
-                print('leftkey')
+                #print('leftkey')
                 hero.setkey(1, False)
             elif(event.key == 274):
-                print('downkey')
+                #print('downkey')
                 hero.setkey(2, False)
             elif(event.key == 275):
-                print('rightkey')
+                #print('rightkey')
                 hero.setkey(0, False)
             elif(event.key == 32):
                 hero.setkey(4,False)
             else:
-                print(event.key)
+                pass
+                #print(event.key)
         else:
-            print(event.type)
+            pass
+            #print(event.type)
 
     shape.x = shape.x+xvel
     shape.y = shape.y+yvel
@@ -157,7 +160,7 @@ while(not done):
             done = True
         if hero.getCollision().bottom + gamescreen.camy - 400 > 0:
             done = True
-        print(gamescreen.camy + sheight, hero.getCollision().top)
+        #print(gamescreen.camy + sheight, hero.getCollision().top)
 
 
 
