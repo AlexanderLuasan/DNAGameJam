@@ -74,13 +74,6 @@ class player(CollisionObj):
         self.collisionRect.y=self.collisionRect.y-self.vely
 
 
-        self.collisionRect.x=self.collisionRect.x+self.velx
-        if(self.collisionRect.colliderect(other.getCollision())):
-            if(self.velx>0):
-                self.collisionRect.right = other.getCollision().left
-            elif(self.velx<0):
-                self.collisionRect.left = other.getCollision().right
-        
         self.collisionRect.y=self.collisionRect.y+self.vely
         if(self.collisionRect.colliderect(other.getCollision())):
             if(self.vely>0):
@@ -88,6 +81,15 @@ class player(CollisionObj):
                 self.onground=True
             elif(self.vely<0):
                 self.collisionRect.top = other.getCollision().bottom
+
+        self.collisionRect.x=self.collisionRect.x+self.velx
+        if(self.collisionRect.colliderect(other.getCollision())):
+            if(self.velx>0):
+                self.collisionRect.right = other.getCollision().left
+            elif(self.velx<0):
+                self.collisionRect.left = other.getCollision().right
+        
+       
 
         
 
