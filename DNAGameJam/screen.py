@@ -38,7 +38,10 @@ class window():
             w = imageFile.drawbox[CollisionObj.index].w
             x -=  imageFile.drawbox[CollisionObj.index].x
             y -=  imageFile.drawbox[CollisionObj.index].y
-            self.drawimg(Rect(x,y,w,h),imageFile.frames[CollisionObj.index])
+            if(CollisionObj.velx>0):
+                self.drawimg(Rect(x,y,w,h),imageFile.frames[CollisionObj.index])
+            else:
+                self.drawimg(Rect(x,y,w,h),imageFile.fliped[CollisionObj.index])
             #d.rect(self.screen,Color(0, 0, 0, 255),Rect(x,y,w,h),0)
         elif CollisionObj.id() == 1:
             d.rect(self.screen,Color(240, 100, 59, 255),Rect(x,y,w,h),0)

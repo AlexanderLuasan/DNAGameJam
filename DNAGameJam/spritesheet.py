@@ -8,6 +8,7 @@ class sprite():
         framebox = frame[0].getElementsByTagName('object')
         hitbox = frame[1].getElementsByTagName('object')
         self.frames = []
+        self.fliped = []
         self.hitboxes = []
         self.drawbox = []
         self.parent = pygame.image.load("50365.png")
@@ -34,8 +35,8 @@ class sprite():
             w=self.drawbox[i].width
             h=self.drawbox[i].height
             self.drawbox[i] = pygame.Rect(x,y,w,h)
-
-        
+        for i in range(framebox.length):
+            self.fliped.append(pygame.transform.flip(self.frames[i],True,False))
 
 
         
