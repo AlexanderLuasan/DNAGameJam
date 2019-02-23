@@ -64,7 +64,9 @@ class window():
         elif CollisionObj.id() == 3:
             for i in CollisionObj.platforms:
                 d.rect(self.screen,Color(160, 160, 160, 255),Rect(x,y,w,h),0)
-                d.line(self.screen,Color(160, 160, 160, 255), (i.getCollision().center), (CollisionObj.getCollision().centerx,CollisionObj.getCollision().centery), 1) 
+                d.line(self.screen,Color(160, 160, 160, 255), (i.getCollision().center), (CollisionObj.getCollision().centerx,CollisionObj.getCollision().centery), 1)
+        elif CollisionObj.id() == 4:
+            d.rect(self.screen,Color(66, 220, 224, 255),Rect(x,y,w,h),0)
     def flip(self):
         pass
     def drawimg(self,rect,surface):
