@@ -79,7 +79,10 @@ class player(CollisionObj):
         self.collisionRect.x=self.collisionRect.x-self.velx
         self.collisionRect.y=self.collisionRect.y-self.vely
 
-
+        if (other.id() == 2):
+            if(other.colide == False):
+                self.collisionRect.y=self.collisionRect.y+self.vely
+                return
         self.collisionRect.y=self.collisionRect.y+self.vely
         if(self.collisionRect.colliderect(other.getCollision())):
             if(self.vely>0):
