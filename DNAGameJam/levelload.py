@@ -36,7 +36,8 @@ class level():
                     self.platforms.append(p)
                     if(obj.hasAttribute("name")):
                         ind = int(obj.hasAttribute("name"))
-                        self.updaters[ind].add(ind)
+                        self.updaters[ind].add(p)
+        print(len(plafroms))
                     
 
 

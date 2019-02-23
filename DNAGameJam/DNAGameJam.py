@@ -128,8 +128,8 @@ while(not done):
 
     for i in range(len(gamestate.platforms)):
         if(hero.getCollision().colliderect(gamestate.platforms[i].getCollision())):
-            hero.collide(collisionObjlist[i])
-            collisionObjlist[i].collide(hero)
+            hero.collide(gamestate.platforms[i])
+            gamestate.platforms[i].collide(hero)
 
     #cammra movement
     if(cammramovement[0]==True):
