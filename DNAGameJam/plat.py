@@ -12,9 +12,12 @@ class movingplat(plat):
         plat.__init__(self, CollisionRect)
         self.stander=None
     def move(self, x, y):
-
+        
         if(self.stander != None):
-            self.stander.collisionRect.x += x-self.collisionRect.centerx
+            if self.collisionRect.top == self.stander.collisionRect.bottom:
+                self.stander.collisionRect.x += x-self.collisionRect.centerx
+            else:
+                self.stander = None
         
         self.collisionRect.centerx = x
         self.collisionRect.centery = y
@@ -22,4 +25,5 @@ class movingplat(plat):
         return 2
     def collide(self,OtherObj):
         self.stander = OtherObj
+        
 
