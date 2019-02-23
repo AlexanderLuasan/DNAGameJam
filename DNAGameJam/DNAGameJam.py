@@ -13,7 +13,7 @@ from Rotator import Rotationpoint
 
 
 #sprite.test()
-collisionObjlist = levelload.load()
+
 
 gamestate = levelload.level("newmap.tmx")
 
