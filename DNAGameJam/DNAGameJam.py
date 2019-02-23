@@ -127,7 +127,6 @@ while(not done):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):
         xvel= xvel * -1;
-    makeing.Update()
     for u in gamestate.updaters:
         u.Update()
     hero.Update()
@@ -166,7 +165,6 @@ while(not done):
     gamescreen.clear()
     gamescreen.drawbackground(back)
     #gamescreen.drawRect(shape)
-    gamescreen.drawObj(mpf)
     for i in range(len(gamestate.platforms)):
         gamescreen.drawObj(gamestate.platforms[i])
 
