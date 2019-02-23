@@ -15,7 +15,7 @@ from Rotator import Rotationpoint
 #sprite.test()
 collisionObjlist = levelload.load()
 
-gamestate = levelload.level("test.tmx")
+gamestate = levelload.level("newmap.tmx")
 
 
 pygame.init()
