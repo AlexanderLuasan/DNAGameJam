@@ -1,4 +1,5 @@
 from CollisionObj import CollisionObj
+from pygame import Rect
 
 class candy(CollisionObj):
     def __init__(self, CollisionRect):

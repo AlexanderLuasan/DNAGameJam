@@ -2,6 +2,7 @@ from xml.dom import minidom
 import pygame
 from plat import plat,movingplat
 from Rotator import Rotationpoint
+from candy import candy
 
 
 class level():
@@ -46,21 +47,15 @@ class level():
                         p = plat(pygame.Rect(x,y,w,h))
                     self.platforms.append(p)
         for objectGroup in objectGroups:
-            if(objectGroup.attributes["name"].value=="Candys"):
+            if(objectGroup.attributes["name"].value=="Candy"):
 
-                candy = objectGroup.getElementsByTagName('object')
-                for obj in candy:
+                candys = objectGroup.getElementsByTagName('object')
+                for obj in candys:
                     x = int(obj.attributes['x'].value)
                     y = int(obj.attributes['y'].value)
                     w = int(obj.attributes['width'].value)
                     h = int(obj.attributes['height'].value)
-                    p=None
-                    if(obj.hasAttribute("name")):
-                        p = movingplat(pygame.Rect(x,y,w,h))
-                        ind = int(obj.attributes["name"].value)
-                        self.updaters[ind].add(p)
-                    else:
-                        p = plat(pygame.Rect(x,y,w,h))
+                    p = candy(pygame.Rect(x,y,w,h))
                     self.platforms.append(p)
         print(len(plafroms))
                     
