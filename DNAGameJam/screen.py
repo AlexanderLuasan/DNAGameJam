@@ -44,13 +44,13 @@ class window():
                 self.drawimg(Rect(x,y,w,h),imageFile.fliped[CollisionObj.index])
             #d.rect(self.screen,Color(0, 0, 0, 255),Rect(x,y,w,h),0)
         elif CollisionObj.id() == 1:
-            d.rect(self.screen,Color(240, 100, 59, 255),Rect(x,y,w,h),0)
+            d.rect(self.screen,Color(0, 122, 14, 255),Rect(x,y,w,h),0)
         elif CollisionObj.id() == 2:
             d.rect(self.screen,Color(240, 100, 59, 255),Rect(x,y,w,h),0)
         elif CollisionObj.id() == 3:
             for i in CollisionObj.platforms:
-                d.rect(self.screen,Color(200, 0, 0, 255),Rect(x,y,w,h),0)
-                d.line(self.screen,Color(200, 0, 0, 255), (i.getCollision().center), (CollisionObj.getCollision().centerx,CollisionObj.getCollision().centery), 1) 
+                d.rect(self.screen,Color(160, 160, 160, 255),Rect(x,y,w,h),0)
+                d.line(self.screen,Color(160, 160, 160, 255), (i.getCollision().center), (CollisionObj.getCollision().centerx,CollisionObj.getCollision().centery), 1) 
     def flip(self):
         pass
     def drawimg(self,rect,surface):
