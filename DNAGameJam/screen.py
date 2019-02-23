@@ -2,11 +2,13 @@
 import pygame.draw as d
 from pygame import Color
 from pygame import Rect
-from spritesheet import sprite
+from spritesheet import sprite,collections
 
 
 
 imageFile = sprite('sprite.tmx')
+thingpicup = collections(["star.jpg"])
+
 class window():
     def __init__(self,screenSurface):
         self.screen = screenSurface;
@@ -66,7 +68,15 @@ class window():
                 d.rect(self.screen,Color(160, 160, 160, 255),Rect(x,y,w,h),0)
                 d.line(self.screen,Color(160, 160, 160, 255), (i.getCollision().center), (CollisionObj.getCollision().centerx,CollisionObj.getCollision().centery), 1)
         elif CollisionObj.id() == 4:
-            d.rect(self.screen,Color(66, 220, 224, 255),Rect(x,y,w,h),0)
+            imgnum = 0
+            imgframe = 0
+
+            im = thingpicup.images[0][0]
+            r = im.get_rect()
+            r.center = CollisionObj.getCollision().center
+            self.drawimg(r,im)
+
+            #d.rect(self.screen,Color(66, 220, 224, 255),Rect(x,y,w,h),0)
     def flip(self):
         pass
     def drawimg(self,rect,surface):

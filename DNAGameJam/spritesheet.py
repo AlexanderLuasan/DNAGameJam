@@ -1,6 +1,18 @@
 from xml.dom import minidom
 import pygame
 
+candysize = 40
+
+class collections:
+    def __init__ (self,imgfiles):
+        self.images = []
+        for i in range(len(imgfiles)):
+            self.images.append(pygame.image.load(imgfiles[i]))
+        for i in range(len(self.images)):
+            self.images[i] = pygame.transform.scale(self.images[i],(candysize,candysize))
+        for i in range(len(self.images)):
+            self.images[i] = [self.images[i]]
+
 class sprite():
     def __init__ (self, filename):
         myframe = minidom.parse('sprite.tmx')
