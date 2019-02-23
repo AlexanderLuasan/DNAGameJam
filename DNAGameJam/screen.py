@@ -7,7 +7,7 @@ from spritesheet import sprite,collections
 
 
 imageFile = sprite('sprite.tmx')
-thingpicup = collections(["star.jpg"])
+thingpicup = collections(["bluecandy.png"])
 
 class window():
     def __init__(self,screenSurface):
@@ -74,9 +74,10 @@ class window():
             im = thingpicup.images[0][0]
             r = im.get_rect()
             r.center = CollisionObj.getCollision().center
+            d.rect(self.screen,Color(66, 220, 224, 255),Rect(x,y,w,h),0)
             self.drawimg(r,im)
 
-            #d.rect(self.screen,Color(66, 220, 224, 255),Rect(x,y,w,h),0)
+            
     def flip(self):
         pass
     def drawimg(self,rect,surface):

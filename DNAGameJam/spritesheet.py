@@ -11,7 +11,10 @@ class collections:
         for i in range(len(self.images)):
             self.images[i] = pygame.transform.scale(self.images[i],(candysize,candysize))
         for i in range(len(self.images)):
-            self.images[i] = [self.images[i]]
+            orig = self.images[i]
+            self.images[i]=[]
+            for j in range(360):
+                self.images[i].append(pygame.transform.rotate(orig, j))
 
 class sprite():
     def __init__ (self, filename):
