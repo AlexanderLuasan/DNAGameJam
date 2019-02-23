@@ -16,6 +16,8 @@ class movingplat(plat):
         if(self.stander != None):
             if self.collisionRect.top == self.stander.collisionRect.bottom:
                 self.stander.collisionRect.x += x-self.collisionRect.centerx
+                self.stander.collisionRect.y += y-self.collisionRect.centery
+
             else:
                 self.stander = None
         

@@ -39,6 +39,7 @@ class player(CollisionObj):
         if(self.velx<-maxspeed):
             self.velx=-maxspeed
         #gravity
+
         if(self.keys[4]==True):
             self.vely+=gravity/2
         else:
@@ -83,9 +84,11 @@ class player(CollisionObj):
         if(self.collisionRect.colliderect(other.getCollision())):
             if(self.vely>0):
                 self.collisionRect.bottom = other.getCollision().top
-                self.onground=True
+                self.onground = True
             elif(self.vely<0):
                 self.collisionRect.top = other.getCollision().bottom
+                
+
 
         self.collisionRect.x=self.collisionRect.x+self.velx
         if(self.collisionRect.colliderect(other.getCollision())):
