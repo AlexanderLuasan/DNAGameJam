@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="80" height="10" tilewidth="50" tileheight="50" infinite="0" nextlayerid="3" nextobjectid="33">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="80" height="10" tilewidth="50" tileheight="50" infinite="0" nextlayerid="3" nextobjectid="35">
  <layer id="1" name="圖塊層 1" width="80" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -32,5 +32,7 @@
   <object id="30" x="3542" y="148" width="25" height="22"/>
   <object id="31" x="3761" y="400" width="239" height="70"/>
   <object id="32" x="3815" y="103" width="100" height="197"/>
+  <object id="33" x="509" y="282" width="136" height="33"/>
+  <object id="34" x="558" y="221" width="27" height="34"/>
  </objectgroup>
 </map>
