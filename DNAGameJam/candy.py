@@ -5,7 +5,7 @@ framespeed = 5
 class candy(CollisionObj):
     def __init__(self, CollisionRect):
         CollisionObj.__init__(self,CollisionRect,CollisionRect)
-        self.imgnumber=0
+        self.imgnumber=random.randint(1, 100)
         self.frame=0
         self.count=0
     def Update(self):
