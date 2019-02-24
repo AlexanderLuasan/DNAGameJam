@@ -11,6 +11,8 @@ class collections:
         for i in range(len(self.images)):
             self.images[i] = pygame.transform.scale(self.images[i],(candysize,candysize))
         for i in range(len(self.images)):
+            self.images[i].set_colorkey(self.images[i].get_at((0,0)))
+        for i in range(len(self.images)):
             orig = self.images[i]
             self.images[i]=[]
             for j in range(360):

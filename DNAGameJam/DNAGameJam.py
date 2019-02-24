@@ -49,7 +49,6 @@ if(not pygame.mixer.music.get_busy()):
 
 
 back = backgroundimg(0,0,"resource/image.jpg")
-#back = backgroundimg(0,0,"resource/background.jpg")
 
 cammramovement = [False,False,False,False]
 
