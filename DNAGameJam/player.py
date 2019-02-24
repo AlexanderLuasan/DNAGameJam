@@ -6,6 +6,7 @@ gravity = 0.5
 gravityspeed = 2
 countindexvar = 0.5
 framespeed = 1
+
 class player(CollisionObj):
     def __init__(self,CollisionRect):
        CollisionObj.__init__(self,CollisionRect,CollisionRect)
@@ -106,9 +107,10 @@ class player(CollisionObj):
         if(self.collisionRect.colliderect(other.getCollision())):
             if(self.velx>0):
                 self.collisionRect.right = other.getCollision().left
+                self.velx=0
             elif(self.velx<0):
                 self.collisionRect.left = other.getCollision().right
-        
+                self.velx=0
        
 
         

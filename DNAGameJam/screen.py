@@ -54,8 +54,12 @@ class window():
 
             h = imageFile.dictionary[animationname]["frame"][CollisionObj.index].h
             w = imageFile.dictionary[animationname]["frame"][CollisionObj.index].w
-            x += imageFile.dictionary[animationname]["frame"][CollisionObj.index].x
             y += imageFile.dictionary[animationname]["frame"][CollisionObj.index].y
+            if(right==1):
+                x += imageFile.dictionary[animationname]["frame"][CollisionObj.index].x
+                
+            else:
+                x += -(w+(imageFile.dictionary[animationname]["frame"][CollisionObj.index].x-CollisionObj.getCollision().w))
             self.drawimg(Rect(x,y,w,h),imageFile.dictionary[animationname]["image"][CollisionObj.index][right])
 
             #d.rect(self.screen,Color(0, 0, 0, 255),Rect(x,y,w,h),0)
