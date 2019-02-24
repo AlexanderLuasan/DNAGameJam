@@ -5,7 +5,7 @@ from Rotator import Rotationpoint, lineMover
 from candy import candy
 
 class scrollevent():
-    def__init__(self,x,sp):
+    def __init__(self,x,sp):
         self.x = x
         self.speed = sp
 
@@ -104,10 +104,11 @@ class level():
                     p = candy(pygame.Rect(x,y,w,h))
                     self.platforms.append(p)
         print(len(plafroms))
-    def checkevents(self):
-        for  i in range(len(events)):
-            print(i)
-
+    def checkevents(self, x):
+        for  i in range(len(self.events)):
+            if self.x < x:
+                self.scrollSpeed = self.events[i].speed
+        
 
 
 
