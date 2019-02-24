@@ -104,10 +104,11 @@ class level():
                     p = candy(pygame.Rect(x,y,w,h))
                     self.platforms.append(p)
         print(len(plafroms))
-    def checkevents(self):
-        for  i in range(len(events)):
-            print(i)
-
+    def checkevents(self, x):
+        for  i in range(len(self.events)):
+            if self.x < x:
+                self.scrollSpeed = self.events[i].speed
+        
 
 
 
