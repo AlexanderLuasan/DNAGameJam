@@ -16,7 +16,7 @@ pygame.font.init()
 
 writting = pygame.font.SysFont("arial",50,False,False)
 
-gameovertext = writting.render("Gave Over", True, pygame.Color(66,244,238))#select a beeter color
+gameovertext = writting.render("Gave Over", True, pygame.Color(209, 105, 20))#select a beeter color
 gameoverrect = gameovertext.get_rect()
 #print(testcandy.id())
 
@@ -58,6 +58,7 @@ win = False
 
 while(game):#the window is open
 
+    if(menuing):
 
     
     while(menuing):#menu
@@ -83,6 +84,7 @@ while(game):#the window is open
     if(death):
         gamescreen.drawimg(gameoverrect,gameovertext)
         pygame.display.flip()
+        time.sleep(1)
     while(death):#Death
         if(not pygame.mixer.music.get_busy()):
             pygame.mixer.music.load("resource/flatfootmain.mp3")
@@ -96,11 +98,12 @@ while(game):#the window is open
                 menuing = True
         
     if(win):
-        points = writting.render("you got " + str(hero.score) + " points", True, pygame.Color(0,0,0))
+        points = writting.render("you got " + str(hero.score) + " points", True, pygame.Color(23, 209, 20))
         pointsrect = points.get_rect()
         pointsrect.center = (swidth/2,sheight/2)
         gamescreen.drawimg(pointsrect,points)
         pygame.display.flip()
+        time.sleep(1)
     while(win):
         if(not pygame.mixer.music.get_busy()):
             pygame.mixer.music.load("resource/flatfootmain.mp3")
