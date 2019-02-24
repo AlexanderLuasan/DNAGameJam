@@ -16,7 +16,7 @@ pygame.font.init()
 
 writting = pygame.font.SysFont("arial",50,False,False)
 
-gameovertext = writting.render("Gave Over", True, pygame.Color(66,244,238))#select a beeter color
+gameovertext = writting.render("Gave Over", True, pygame.Color(239,0,0), pygame.Color(0,0,0))#select a beeter color
 gameoverrect = gameovertext.get_rect()
 #print(testcandy.id())
 
