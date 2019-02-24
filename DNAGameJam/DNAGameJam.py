@@ -43,28 +43,43 @@ back = backgroundimg(0,0,"resource/background.jpg")
 
 cammramovement = [False,False,False,False]
 
+menuing = True
+game = True
+playing = False
+while(game):#the window is open
 
 
-while(True):#the window is open
-
-
-
-    while(True):#menu
-        print("menu")
     
-
-    while(True):#menu
-        print("death")
-
-    while(True):#menu
-        print("sucsess")
-    
-    done = False
-
-    while(not done):
+    while(menuing):#menu
         for event in pygame.event.get():
             if (event.type == 12):
-                done = True
+                game = False
+                menuing = False
+            elif(event.type == 3):
+                menuing = False
+                playing = True
+
+
+        gamescreen.clear()
+        pygame.display.flip()
+
+        timmer.tick(60)
+
+    
+
+    while(False):#menu
+        print("death")
+
+    while(False):#menu
+        print("sucsess")
+    
+    
+
+    while(playing):
+        for event in pygame.event.get():
+            if (event.type == 12):
+                playing = False
+                game = False
             elif(event.type == 2):
                 if(event.key==119):
                     #print('w')
