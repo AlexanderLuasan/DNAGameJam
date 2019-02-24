@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="805" tileheight="156" infinite="0" nextlayerid="9" nextobjectid="44">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="805" tileheight="156" infinite="0" nextlayerid="9" nextobjectid="46">
  <tileset firstgid="1" name="new_sprite" tilewidth="805" tileheight="156" tilecount="1" columns="1">
-  <image source="../../../../../OneDrive/바탕 화면/gamegem/new_sprite.png" width="805" height="156"/>
+  <image source="new_sprite.png" width="805" height="156"/>
  </tileset>
  <tileset firstgid="2" name="new_sprite" tilewidth="805" tileheight="156" tilecount="1" columns="1">
   <image source="new_sprite.png" width="805" height="156"/>
@@ -11,7 +11,7 @@
 1
 </data>
  </layer>
- <objectgroup id="2" name="frame Walking" visible="0">
+ <objectgroup id="2" name="frame Walking">
   <object id="2" name="frame2" x="58" y="10" width="41" height="135"/>
   <object id="4" name="frame3" x="110" y="10" width="64" height="136"/>
   <object id="5" name="frame4" x="187" y="12" width="81" height="127"/>
@@ -20,17 +20,18 @@
   <object id="29" name="frame7" x="187" y="12" width="81" height="127"/>
   <object id="28" name="frame8" x="110" y="10" width="64" height="136"/>
   <object id="27" name="frame9" x="58" y="10" width="41" height="135"/>
-  <object id="10" name="frame10" x="758" y="11" width="41" height="135"/>
-  <object id="9" name="frame11" x="669" y="12" width="64" height="136"/>
-  <object id="8" name="frame12" x="553" y="15" width="82" height="128"/>
-  <object id="7" name="frame13" x="405" y="16" width="103" height="119"/>
-  <object id="31" name="frame14" x="405" y="16" width="103" height="119"/>
-  <object id="32" name="frame15" x="553" y="15" width="82" height="128"/>
-  <object id="33" name="frame16" x="669" y="12" width="64" height="136"/>
-  <object id="34" name="frame17" x="758" y="11" width="41" height="135"/>
+  <object id="11" name="frame10" x="15" y="10" width="30" height="135"/>
+  <object id="10" name="frame11" x="758" y="11" width="41" height="135"/>
+  <object id="9" name="frame12" x="669" y="12" width="64" height="136"/>
+  <object id="8" name="frame13" x="553" y="15" width="82" height="128"/>
+  <object id="7" name="frame14" x="405" y="16" width="103" height="119"/>
+  <object id="31" name="frame15" x="405" y="16" width="103" height="119"/>
+  <object id="32" name="frame16" x="553" y="15" width="82" height="128"/>
+  <object id="33" name="frame17" x="669" y="12" width="64" height="136"/>
+  <object id="34" name="frame18" x="758" y="11" width="41" height="135"/>
  </objectgroup>
  <objectgroup id="3" name="hitbox idle" visible="0">
-  <object id="15" x="16" y="11" width="28" height="133"/>
+  <object id="45" x="16" y="11" width="28" height="133" visible="0"/>
  </objectgroup>
  <objectgroup id="4" name="frame jump" visible="0">
   <object id="24" name="frame1" x="284" y="16" width="104" height="119"/>
@@ -39,7 +40,7 @@
   <object id="25" x="336" y="1" width="28" height="133"/>
  </objectgroup>
  <objectgroup id="6" name="frame idle" visible="0">
-  <object id="11" name="frame0" x="15" y="10" width="30" height="135"/>
+  <object id="44" name="frame0" x="15" y="10" width="30" height="135"/>
  </objectgroup>
  <objectgroup id="7" name="hitbox Walking" visible="0">
   <object id="14" name="hitbox2" x="62" y="11" width="28" height="133"/>
@@ -50,13 +51,14 @@
   <object id="37" name="hitbox7" x="219" y="5" width="28" height="133"/>
   <object id="36" name="hitbox8" x="127" y="12" width="28" height="133"/>
   <object id="35" name="hitbox9" x="62" y="11" width="28" height="133"/>
-  <object id="39" name="hitbox10" x="762" y="12" width="28" height="133"/>
-  <object id="23" name="hitbox11" x="686" y="14" width="28" height="133"/>
-  <object id="22" name="hitbox12" x="586" y="9" width="28" height="133"/>
-  <object id="21" name="hitbox13" x="457" y="1" width="28" height="133"/>
-  <object id="40" name="hitbox14" x="457" y="1" width="28" height="133"/>
-  <object id="41" name="hitbox15" x="586" y="9" width="28" height="133"/>
-  <object id="42" name="hitbox16" x="686" y="14" width="28" height="133"/>
-  <object id="17" name="hitbox17" x="762" y="12" width="28" height="133"/>
+  <object id="15" name="hitbox10" x="16" y="11" width="28" height="133"/>
+  <object id="39" name="hitbox11" x="762" y="12" width="28" height="133"/>
+  <object id="23" name="hitbox12" x="686" y="14" width="28" height="133"/>
+  <object id="22" name="hitbox13" x="586" y="9" width="28" height="133"/>
+  <object id="21" name="hitbox14" x="457" y="1" width="28" height="133"/>
+  <object id="40" name="hitbox15" x="457" y="1" width="28" height="133"/>
+  <object id="41" name="hitbox16" x="586" y="9" width="28" height="133"/>
+  <object id="42" name="hitbox17" x="686" y="14" width="28" height="133"/>
+  <object id="17" name="hitbox18" x="762" y="12" width="28" height="133"/>
  </objectgroup>
 </map>
