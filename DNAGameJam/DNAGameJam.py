@@ -34,14 +34,9 @@ sheight =600
 pygame.display.set_mode([swidth,sheight])
 gamescreen=screen.window(pygame.display.get_surface())
 
-shape = pygame.Rect(0,0,40,40)
-shape.center = (swidth/2,sheight/2)
 
-xvel = 2
-yvel = 4
 
-starimg = pygame.image.load("star.jpg")
-starimg = pygame.transform.scale(starimg,(40,40))
+
 
 
 back = backgroundimg(0,0,"background.jpg")
@@ -122,10 +117,7 @@ while(not done):
 
     gamestate.checkevents(abs(gamescreen.camx))
     gamescreen.changex(-gamestate.scrollSpeed)
-    if(shape.bottom>sheight or shape.top<0):
-        yvel = yvel * -1
-    if(shape.right>swidth or shape.left<0):
-        xvel= xvel * -1;
+
     for u in gamestate.updaters:
         u.Update()
     hero.Update()
