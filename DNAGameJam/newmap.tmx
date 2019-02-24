@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="80" height="10" tilewidth="50" tileheight="50" infinite="0" nextlayerid="7" nextobjectid="70">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="80" height="10" tilewidth="50" tileheight="50" infinite="0" nextlayerid="7" nextobjectid="71">
  <tileset firstgid="1" name="background" tilewidth="50" tileheight="50" tilecount="480" columns="32">
   <image source="background.jpg" width="1600" height="750"/>
  </tileset>
@@ -18,7 +18,15 @@
 </data>
  </layer>
  <objectgroup id="5" name="Control">
+  <properties>
+   <property name="speed" value="5"/>
+  </properties>
   <object id="64" name="playerstart" x="97" y="93" width="107" height="82"/>
+  <object id="70" name="setscroll" x="88" y="288" width="92" height="16">
+   <properties>
+    <property name="speed" value="20"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="2" name="Updaters">
   <object id="35" name="0" x="1893" y="245" width="72" height="68">
