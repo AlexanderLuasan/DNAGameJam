@@ -1,8 +1,8 @@
 from CollisionObj import CollisionObj
 maxspeedy = 10
 maxspeedx = 10
-speedx = 1
-friction = 0.1
+speedx = .5
+friction = .5
 gravity = .5
 gravityspeed = 2
 countindexvar = 1
