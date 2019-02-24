@@ -11,8 +11,13 @@ from Rotator import Rotationpoint
 from candy import candy
 from Rotator import lineMover
 import time
+pygame.font.init()
 
 
+writting = pygame.font.SysFont("arial",26,False,False)
+
+gameovertext = writting.render("Gave Over", True, pygame.Color(0,0,0))
+gameoverrect = gameovertext.get_rect()
 #print(testcandy.id())
 
 
@@ -34,6 +39,7 @@ swidth = 1280
 sheight =600
 pygame.display.set_mode([swidth,sheight])
 gamescreen=screen.window(pygame.display.get_surface())
+gameoverrect.center = (swidth/2,sheight/2)
 
 
 if(not pygame.mixer.music.get_busy()):
@@ -76,7 +82,9 @@ while(game):#the window is open
    
 
         
-
+    if(death):
+        gamescreen.drawimg(gameoverrect,gameovertext)
+        pygame.display.flip()
     while(death):#Death
         for event in pygame.event.get():
             if (event.type == 12):
