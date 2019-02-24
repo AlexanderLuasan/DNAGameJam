@@ -15,7 +15,7 @@ pygame.font.init()
 
 
 writting = pygame.font.SysFont("arial",26,False,False)
-
+pygame.display.set_caption("our game")
 gameovertext = writting.render("Gave Over", True, pygame.Color(0,0,0))
 gameoverrect = gameovertext.get_rect()
 #print(testcandy.id())
