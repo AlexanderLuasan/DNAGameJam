@@ -145,7 +145,7 @@ while(game):#the window is open
                 #print(event.type)
 
         gamestate.checkevents(abs(gamescreen.camx))
-        #gamescreen.changex(-1)
+        gamescreen.changex(-1)
 
         for u in gamestate.updaters:
             u.Update()

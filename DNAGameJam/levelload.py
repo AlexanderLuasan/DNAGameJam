@@ -15,7 +15,7 @@ class level():
         objectGroups = mydoc.getElementsByTagName('objectgroup')
         self.updaters = []
         self.platforms = []
-
+        self.gamefinished = True
         self.events = []
 
         self.scrollSpeed = 1
@@ -108,6 +108,10 @@ class level():
         for  i in range(len(self.events)):
             if x > self.events[i].x:
                 self.scrollSpeed = self.events[i].speed
+                del self.events[i]
+                break
+        if(len(self.events)<1):
+            self.gamefinished = True
         
 
 
