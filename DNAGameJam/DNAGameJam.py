@@ -115,7 +115,7 @@ while(game):#the window is open
         
     
     if(playing):
-        gamestate = levelload.level("resource/newmap.tmx")
+        gamestate = levelload.level("resource/stage1.tmx")
         hero = player(Rect(gamestate.px,gamestate.py,28,133))
         gamescreen.camx = 0
         gamescreen.camy =0 

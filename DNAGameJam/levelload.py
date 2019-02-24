@@ -117,7 +117,7 @@ class level():
 
 
 def load():
-    mydoc = minidom.parse('resource/test.tmx')
+    mydoc = minidom.parse('resource/stage1.tmx')
     platform = mydoc.getElementsByTagName('object')
     length = platform.length
     platlist = []
