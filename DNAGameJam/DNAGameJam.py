@@ -116,7 +116,7 @@ while(not done):
             #print(event.type)
 
     gamestate.checkevents(abs(gamescreen.camx))
-    gamescreen.changex(-gamestate.scrollSpeed)
+    #gamescreen.changex(-1)
 
     for u in gamestate.updaters:
         u.Update()

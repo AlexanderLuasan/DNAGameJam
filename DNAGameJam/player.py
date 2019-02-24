@@ -1,13 +1,13 @@
 from CollisionObj import CollisionObj
-maxspeedy = 6
-maxspeedx = 6
-speedx = 3
+maxspeedy = 10
+maxspeedx = 10
+speedx = 1
 friction = 0.1
-gravity = 0.5
+gravity = .5
 gravityspeed = 2
-countindexvar = 0.5
-framespeed = 1
-jumpstr = -10
+countindexvar = 1
+framespeed = 2
+jumpstr = -8
 class player(CollisionObj):
     def __init__(self,CollisionRect):
        CollisionObj.__init__(self,CollisionRect,CollisionRect)
@@ -61,8 +61,12 @@ class player(CollisionObj):
             self.vely=-maxspeedy
         
         if(self.keys[0]==False and self.keys[1]==False):
-            self.velx-=friction
+            
             if(self.velx<0):
+                self.velx+=friction
+            elif(self.velx>0):
+                self.velx-=friction
+            if(abs(self.velx - friction)<1):
                 self.velx=0
         if(self.keys[1]==False and self.keys[0]==False):
             self.velx+=friction
@@ -100,8 +104,8 @@ class player(CollisionObj):
             if(self.vely>0):
                 self.collisionRect.bottom = other.getCollision().top
                 self.onground = True
-            elif(self.vely<0):
-                self.collisionRect.top = other.getCollision().bottom
+            #elif(self.vely<0):
+                #self.collisionRect.top = other.getCollision().bottom
                 
 
 
