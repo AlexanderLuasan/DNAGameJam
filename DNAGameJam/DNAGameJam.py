@@ -96,7 +96,7 @@ while(game):#the window is open
                 menuing = True
         
     if(win):
-        points = writting.render("you got " + str(hero.score) + " points", True, pygame.Color(0,0,0))
+        points = writting.render("you got " + str(hero.score) + " pieces of candies", True, pygame.Color(0,0,0), pygame.Color(255, 195, 0))
         pointsrect = points.get_rect()
         pointsrect.center = (swidth/2,sheight/2)
         gamescreen.drawimg(pointsrect,points)
