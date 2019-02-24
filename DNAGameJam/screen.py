@@ -76,7 +76,8 @@ class window():
             CollisionObj.Update()
             if(CollisionObj.frame>=len(thingpicup.images[imgnum])):
                 CollisionObj.frame=0
-
+            if(CollisionObj.frame<0):
+                CollisionObj.frame=len(thingpicup.images[imgnum])-1
             im = thingpicup.images[imgnum][CollisionObj.frame]
             r = im.get_rect()
             r.center = Rect(x,y,w,h).center

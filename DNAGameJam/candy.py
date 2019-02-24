@@ -9,12 +9,13 @@ class candy(CollisionObj):
         CollisionObj.__init__(self,CollisionRect,CollisionRect)
 
         self.imgnumber=random.randint(0, 1)
-        print(self.imgnumber)
-        self.frame=0
+
+        self.frame=random.randint(0,359)
         self.count=0
+        self.direction = random.choice([-1,1])
     def Update(self):
         if(self.count>framespeed):
-            self.frame+=1
+            self.frame+=self.direction
         self.count+=1
     def id(self):
         return 4
