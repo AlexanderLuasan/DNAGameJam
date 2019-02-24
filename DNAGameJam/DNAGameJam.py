@@ -64,18 +64,16 @@ while(game):#the window is open
         pygame.display.flip()
 
         timmer.tick(60)
+   
 
-    
-
-    while(False):#menu
-        print("death")
+        
 
     while(False):#menu
         print("sucsess")
     
     
 
-    while(playing):
+    while(playing):#death detection
         for event in pygame.event.get():
             if (event.type == 12):
                 playing = False
@@ -167,15 +165,24 @@ while(game):#the window is open
         if(cammramovement[3]==True):
             gamescreen.changey(-3)
 
-    
         if hero.getCollision().right + gamescreen.camx < 0:
-            done = True
+            playing = False
+            menuing = True
+            print("death")
+            #done = True
         if hero.getCollision().left + gamescreen.camx - 1280 > 0:
-            done = True
+            playing = False
+            menuing = True
+            print("death")
         if hero.getCollision().top + gamescreen.camy < 0:
-            done = True
+            playing = False
+            menuing = True
+            print("death")
         if hero.getCollision().bottom + gamescreen.camy - 600 > 0:
-            done = True
+            playing = False
+            menuing = True
+            print("death")
+        
             #print(gamescreen.camy + sheight, hero.getCollision().top)
 
 
