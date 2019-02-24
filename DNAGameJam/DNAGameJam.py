@@ -218,20 +218,20 @@ while(game):#the window is open
         if(cammramovement[3]==True):
             gamescreen.changey(-3)
 
-        if hero.getCollision().right + gamescreen.camx < 50:
+        if hero.getCollision().right + gamescreen.camx < -50:
             playing = False
             death = True
             print("death")
             #done = True
-        if hero.getCollision().left + gamescreen.camx - 1280 > -50:
+        if hero.getCollision().left + gamescreen.camx - 1280 > 50:
             playing = False
             death = True
             print("death")
-        if hero.getCollision().bottom + gamescreen.camy < 50:
+        if hero.getCollision().bottom + gamescreen.camy < -50:
             playing = False
             death = True
             print("death")
-        if hero.getCollision().top + gamescreen.camy - 600 > -50:
+        if hero.getCollision().top + gamescreen.camy - 600 > 50:
             playing = False
             death = True
             print("death")
