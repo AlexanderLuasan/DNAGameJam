@@ -86,37 +86,45 @@ class player(CollisionObj):
     def id(self):
         return 0
     def collide(self,other):
-        self.collisionRect.x=self.collisionRect.x-self.velx
-        self.collisionRect.y=self.collisionRect.y-self.vely
 
-        if (other.id() == 2):
+       
+        self.collisionRect.y=self.collisionRect.y-self.vely
+        if (other.id()==2):
             if(other.colide == False):
-                #self.collisionRect.y=self.collisionRect.y+self.vely
-                self.collisionRect.x=self.collisionRect.x+self.velx
-                return
-        if (other.id() == 4):
+                if(self.collisionRect.colliderect(other.getCollision())):
+                    self.collisionRect.y=self.collisionRect.y+self.vely
+                else:
+                    self.collisionRect.bottom = other.getCollision().top
+                    self.onground = True
+            else:
+                if(self.collisionRect.colliderect(other.getCollision())):
+                    self.collisionRect.y=self.collisionRect.y+self.vely
+                else:
+                    if(self.vely>0):
+                        self.collisionRect.bottom = other.getCollision().top
+                        self.onground = True
+        elif(other.id() == 4):
             self.score += 1
             other.collisionRect.x = -50
             other.collisionRect.y = -50
             print(self.score)
-        self.collisionRect.y=self.collisionRect.y+self.vely
-        if(self.collisionRect.colliderect(other.getCollision())):
-            if(self.vely>0):
-                self.collisionRect.bottom = other.getCollision().top
-                self.onground = True
-            #elif(self.vely<0):
-                #self.collisionRect.top = other.getCollision().bottom
+        else:
+            self.collisionRect.y=self.collisionRect.y+self.vely
+            if(self.collisionRect.colliderect(other.getCollision())):
+                if(self.vely>0 and self.collisionRect.bottom- other.getCollision().top<self.collisionRect.width/2):
+                    self.collisionRect.bottom = other.getCollision().top
+                    self.onground = True
                 
 
-
-        self.collisionRect.x=self.collisionRect.x+self.velx
-        if(self.collisionRect.colliderect(other.getCollision())):
-            if(self.velx>0):
-                self.collisionRect.right = other.getCollision().left
-                self.velx=0
-            elif(self.velx<0):
-                self.collisionRect.left = other.getCollision().right
-                self.velx=0
+        #self.collisionRect.x=self.collisionRect.x-self.velx
+        #self.collisionRect.x=self.collisionRect.x+self.velx
+        #if(self.collisionRect.colliderect(other.getCollision())):
+            #if(self.velx>0):
+             #   self.collisionRect.right = other.getCollision().left
+              #  self.velx=0
+            #elif(self.velx<0):
+             #   self.collisionRect.left = other.getCollision().right
+              #  self.velx=0
        
 
         
