@@ -59,7 +59,12 @@ win = False
 while(game):#the window is open
 
     if(menuing):
+        img = pygame.image.load("resource/title.png")
+        imgre = img.get_rect()
 
+        gamescreen.clear()
+        gamescreen.drawimg(imgre,img)
+        pygame.display.flip()
     
     while(menuing):#menu
         if(not pygame.mixer.music.get_busy()):
@@ -72,10 +77,6 @@ while(game):#the window is open
             elif(event.type == 3):
                 menuing = False
                 playing = True
-
-
-        gamescreen.clear()
-        pygame.display.flip()
 
         timmer.tick(60)
    
