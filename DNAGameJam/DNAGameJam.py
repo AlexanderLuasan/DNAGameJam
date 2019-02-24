@@ -218,6 +218,10 @@ while(game):#the window is open
         if(cammramovement[3]==True):
             gamescreen.changey(-3)
 
+
+        if(hero.getCollision().right + gamescreen.camx-800 > 0):
+            gamescreen.changex(-hero.velx)
+
         if hero.getCollision().right + gamescreen.camx < -50:
             playing = False
             death = True
