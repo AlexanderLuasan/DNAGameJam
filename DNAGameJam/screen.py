@@ -83,7 +83,7 @@ class window():
             im = thingpicup.images[imgnum][CollisionObj.frame]
             r = im.get_rect()
             r.center = Rect(x,y,w,h).center
-            d.rect(self.screen,Color(66, 220, 224, 255),Rect(x,y,w,h),0)
+            #d.rect(self.screen,Color(66, 220, 224, 255),Rect(x,y,w,h),0)
             self.drawimg(r,im)
 
             
