@@ -55,7 +55,7 @@ class window():
             h = imageFile.dictionary[animationname]["frame"][CollisionObj.index].h
             w = imageFile.dictionary[animationname]["frame"][CollisionObj.index].w
             y += imageFile.dictionary[animationname]["frame"][CollisionObj.index].y
-            if(right==1):
+            if(right==0):
                 x += imageFile.dictionary[animationname]["frame"][CollisionObj.index].x
                 
             else:
