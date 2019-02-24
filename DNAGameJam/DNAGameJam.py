@@ -11,8 +11,13 @@ from Rotator import Rotationpoint
 from candy import candy
 from Rotator import lineMover
 import time
+pygame.font.init()
 
 
+writting = pygame.font.SysFont("arial",26,False,False)
+
+gameovertext = writting.render("Gave Over", True, pygame.Color(0,0,0))
+gameoverrect = gameovertext.get_rect()
 #print(testcandy.id())
 
 
@@ -23,9 +28,9 @@ gamestate = None
 
 
 pygame.init()
+pygame.mixer.music.load("resource/flatfootintro.mp3")
+pygame.mixer.music.play()
 
-#pygame.mixer.music.load("flatfoot.mp3")
-#pygame.mixer.music.play()
 hero = None
 #jonathan's comment
 timmer = pygame.time.Clock()
@@ -34,9 +39,12 @@ swidth = 1280
 sheight =600
 pygame.display.set_mode([swidth,sheight])
 gamescreen=screen.window(pygame.display.get_surface())
+gameoverrect.center = (swidth/2,sheight/2)
 
 
-
+if(not pygame.mixer.music.get_busy()):
+    pygame.mixer.music.load("resource/flatfootmain.mp3")
+    pygame.mixer.music.play()
 
 
 back = backgroundimg(0,0,"resource/background.jpg")
@@ -55,6 +63,9 @@ while(game):#the window is open
 
     
     while(menuing):#menu
+        if(not pygame.mixer.music.get_busy()):
+            pygame.mixer.music.load("resource/flatfootmain.mp3")
+            pygame.mixer.music.play()
         for event in pygame.event.get():
             if (event.type == 12):
                 game = False
@@ -71,16 +82,39 @@ while(game):#the window is open
    
 
         
-
+    if(death):
+        gamescreen.drawimg(gameoverrect,gameovertext)
+        pygame.display.flip()
     while(death):#Death
-        time.sleep(10)
-        death = False
-        menuing = True
-
+        if(not pygame.mixer.music.get_busy()):
+            pygame.mixer.music.load("resource/flatfootmain.mp3")
+            pygame.mixer.music.play()
+        for event in pygame.event.get():
+            if (event.type == 12):
+                game = False
+                death = False
+            elif(event.type == 3):
+                death = False
+                menuing = True
+        
+    if(win):
+        points = writting.render("you got " + str(hero.score) + " points", True, pygame.Color(0,0,0))
+        pointsrect = points.get_rect()
+        pointsrect.center = (swidth/2,sheight/2)
+        gamescreen.drawimg(pointsrect,points)
+        pygame.display.flip()
     while(win):
-        time.sleep(10)
-        win = False
-        menuing = True
+        if(not pygame.mixer.music.get_busy()):
+            pygame.mixer.music.load("resource/flatfootmain.mp3")
+            pygame.mixer.music.play()
+        for event in pygame.event.get():
+            if (event.type == 12):
+                game = False
+                win = False
+            elif(event.type == 3):
+                win = False
+                menuing = True
+        
     
     if(playing):
         gamestate = levelload.level("resource/newmap.tmx")
@@ -89,7 +123,10 @@ while(game):#the window is open
         gamescreen.camy =0 
         
 
-    while(playing):#death detection
+    while(playing):
+        if(not pygame.mixer.music.get_busy()):
+            pygame.mixer.music.load("resource/flatfootmain.mp3")
+            pygame.mixer.music.play()
         for event in pygame.event.get():
             if (event.type == 12):
                 playing = False
