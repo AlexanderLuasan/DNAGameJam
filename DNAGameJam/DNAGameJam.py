@@ -14,9 +14,9 @@ import time
 pygame.font.init()
 
 
-writting = pygame.font.SysFont("arial",26,False,False)
+writting = pygame.font.SysFont("arial",50,False,False)
 
-gameovertext = writting.render("Gave Over", True, pygame.Color(0,0,0))
+gameovertext = writting.render("Gave Over", True, pygame.Color(66,244,238))#select a beeter color
 gameoverrect = gameovertext.get_rect()
 #print(testcandy.id())
 
@@ -38,7 +38,7 @@ timmer = pygame.time.Clock()
 swidth = 1280
 sheight =600
 pygame.display.set_mode([swidth,sheight])
-pygame.display.set_caption("stolen sweets")
+pygame.display.set_caption("Stolen Sweets")
 gamescreen=screen.window(pygame.display.get_surface())
 gameoverrect.center = (swidth/2,sheight/2)
 
@@ -48,10 +48,7 @@ if(not pygame.mixer.music.get_busy()):
     pygame.mixer.music.play()
 
 
-back = backgroundimg(0,0,"resource/background.jpg")
-
-
-cammramovement = [False,False,False,False]
+back = backgroundimg(0,0,"resource/image.jpg")
 
 menuing = True
 game = True
@@ -133,19 +130,7 @@ while(game):#the window is open
                 playing = False
                 game = False
             elif(event.type == 2):
-                if(event.key==119):
-                    #print('w')
-                    cammramovement[2]=True
-                elif(event.key == 97):
-                    #print('a')
-                    cammramovement[0]=True
-                elif(event.key == 115):
-                    #print('s')
-                    cammramovement[3]=True
-                elif(event.key == 100):
-                    #print('d')
-                    cammramovement[1]=True
-                elif(event.key == 273):
+                if(event.key == 273):
                     #print('upkey')
                     hero.setkey(3, True)
                 elif(event.key == 276):
@@ -163,19 +148,7 @@ while(game):#the window is open
                     pass
                     #print(event.key)
             elif(event.type == 3):
-                if(event.key==119):
-                    #print('w')
-                    cammramovement[2]=False
-                elif(event.key == 97):
-                    #print('a')
-                    cammramovement[0]=False
-                elif(event.key == 115):
-                    #print('s')
-                    cammramovement[3]=False
-                elif(event.key == 100):
-                    #print('d')
-                    cammramovement[1]=False
-                elif(event.key == 273):
+                if(event.key == 273):
                     #print('upkey')
                     hero.setkey(3, False)
                 elif(event.key == 276):
@@ -208,16 +181,6 @@ while(game):#the window is open
             if(hero.getCollision().colliderect(gamestate.platforms[i].getCollision())):
                 hero.collide(gamestate.platforms[i])
                 gamestate.platforms[i].collide(hero)
-
-        #cammra movement
-        if(cammramovement[0]==True):
-            gamescreen.changex(3)
-        if(cammramovement[1]==True):
-            gamescreen.changex(-3)
-        if(cammramovement[2]==True):
-            gamescreen.changey(3)
-        if(cammramovement[3]==True):
-            gamescreen.changey(-3)
 
 
         if(hero.getCollision().right + gamescreen.camx-800 > 0):

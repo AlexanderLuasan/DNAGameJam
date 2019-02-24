@@ -7,7 +7,9 @@ from spritesheet import sprite,collections
 
 
 imageFile = sprite('resource/sprite.tmx')
-thingpicup = collections(["resource/bluecandy.png","resource/star.jpg"])
+numberofcandies = 21
+#thingpicup = collections(["resource/bluecandy.png","resource/star.jpg"])
+thingpicup = collections(["resource/candy"+str(i)+".png" for i in range(1,numberofcandies)])
 
 class window():
     def __init__(self,screenSurface):
