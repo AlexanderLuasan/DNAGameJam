@@ -23,9 +23,9 @@ gamestate = None
 
 
 pygame.init()
+pygame.mixer.music.load("resource/flatfootintro.mp3")
+pygame.mixer.music.play()
 
-#pygame.mixer.music.load("flatfoot.mp3")
-#pygame.mixer.music.play()
 hero = None
 #jonathan's comment
 timmer = pygame.time.Clock()
@@ -36,7 +36,9 @@ pygame.display.set_mode([swidth,sheight])
 gamescreen=screen.window(pygame.display.get_surface())
 
 
-
+if(not pygame.mixer.music.get_busy()):
+    pygame.mixer.music.load("resource/flatfootmain.mp3")
+    pygame.mixer.music.play()
 
 
 back = backgroundimg(0,0,"resource/background.jpg")
@@ -55,6 +57,9 @@ while(game):#the window is open
 
     
     while(menuing):#menu
+        if(not pygame.mixer.music.get_busy()):
+            pygame.mixer.music.load("resource/flatfootmain.mp3")
+            pygame.mixer.music.play()
         for event in pygame.event.get():
             if (event.type == 12):
                 game = False
@@ -73,14 +78,24 @@ while(game):#the window is open
         
 
     while(death):#Death
-        time.sleep(10)
-        death = False
-        menuing = True
+        for event in pygame.event.get():
+            if (event.type == 12):
+                game = False
+                death = False
+            elif(event.type == 3):
+                death = False
+                menuing = True
+        
 
     while(win):
-        time.sleep(10)
-        win = False
-        menuing = True
+        for event in pygame.event.get():
+            if (event.type == 12):
+                game = False
+                win = False
+            elif(event.type == 3):
+                win = False
+                menuing = True
+        
     
     if(playing):
         gamestate = levelload.level("resource/newmap.tmx")
@@ -89,7 +104,10 @@ while(game):#the window is open
         gamescreen.camy =0 
         
 
-    while(playing):#death detection
+    while(playing):
+        if(not pygame.mixer.music.get_busy()):
+            pygame.mixer.music.load("resource/flatfootmain.mp3")
+            pygame.mixer.music.play()
         for event in pygame.event.get():
             if (event.type == 12):
                 playing = False
