@@ -106,7 +106,7 @@ class level():
         print(len(plafroms))
     def checkevents(self, x):
         for  i in range(len(self.events)):
-            if self.x < x:
+            if x > self.events[i].x:
                 self.scrollSpeed = self.events[i].speed
         
 
