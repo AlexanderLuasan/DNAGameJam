@@ -94,6 +94,12 @@ while(game):#the window is open
                 death = False
                 menuing = True
         
+    if(win):
+        points = writting.render("you got " + str(hero.score) + " points", True, pygame.Color(0,0,0))
+        pointsrect = points.get_rect()
+        pointsrect.center = (swidth/2,sheight/2)
+        gamescreen.drawimg(pointsrect,points)
+        pygame.display.flip()
 
     while(win):
         for event in pygame.event.get():
