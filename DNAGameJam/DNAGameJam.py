@@ -137,15 +137,15 @@ while(not done):
     if(cammramovement[3]==True):
         gamescreen.changey(-3)
 
-    if(False):
-        if hero.getCollision().right + gamescreen.camx < 0:
-            done = True
-        if hero.getCollision().left + gamescreen.camx - 600 > 0:
-            done = True
-        if hero.getCollision().top + gamescreen.camy < 0:
-            done = True
-        if hero.getCollision().bottom + gamescreen.camy - 400 > 0:
-            done = True
+    
+    if hero.getCollision().right + gamescreen.camx < 0:
+        done = True
+    if hero.getCollision().left + gamescreen.camx - 600 > 0:
+        done = True
+    if hero.getCollision().top + gamescreen.camy < 0:
+        done = True
+    if hero.getCollision().bottom + gamescreen.camy - 400 > 0:
+        done = True
         #print(gamescreen.camy + sheight, hero.getCollision().top)
 
 
