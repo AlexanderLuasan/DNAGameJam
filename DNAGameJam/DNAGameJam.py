@@ -174,11 +174,11 @@ while(game):#the window is open
             playing = False
             menuing = True
             print("death")
-        if hero.getCollision().top + gamescreen.camy < 0:
+        if hero.getCollision().bottom + gamescreen.camy < 0:
             playing = False
             menuing = True
             print("death")
-        if hero.getCollision().bottom + gamescreen.camy - 600 > 0:
+        if hero.getCollision().top + gamescreen.camy - 600 > 0:
             playing = False
             menuing = True
             print("death")
