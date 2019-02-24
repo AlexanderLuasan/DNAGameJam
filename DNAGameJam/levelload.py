@@ -15,7 +15,7 @@ class level():
         objectGroups = mydoc.getElementsByTagName('objectgroup')
         self.updaters = []
         self.platforms = []
-        self.gamefinished = True
+        self.gamefinished = False
         self.events = []
 
         self.scrollSpeed = 1

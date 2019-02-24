@@ -10,6 +10,7 @@ from spritesheet import sprite, backgroundimg
 from Rotator import Rotationpoint
 from candy import candy
 from Rotator import lineMover
+import time
 
 
 #print(testcandy.id())
@@ -18,14 +19,14 @@ from Rotator import lineMover
 #sprite.test()
 
 
-gamestate = levelload.level("resource/newmap.tmx")
+gamestate = None
 
 
 pygame.init()
 
 #pygame.mixer.music.load("flatfoot.mp3")
 #pygame.mixer.music.play()
-hero = player(Rect(gamestate.px,gamestate.py,28,133))
+hero = None
 #jonathan's comment
 timmer = pygame.time.Clock()
 
@@ -46,6 +47,9 @@ cammramovement = [False,False,False,False]
 menuing = True
 game = True
 playing = False
+death = False
+win = False
+
 while(game):#the window is open
 
 
@@ -68,10 +72,22 @@ while(game):#the window is open
 
         
 
-    while(False):#menu
-        print("sucsess")
+    while(death):#Death
+        time.sleep(10)
+        death = False
+        menuing = True
+
+    while(win):
+        time.sleep(10)
+        win = False
+        menuing = True
     
-    
+    if(playing):
+        gamestate = levelload.level("resource/newmap.tmx")
+        hero = player(Rect(gamestate.px,gamestate.py,28,133))
+        gamescreen.camx = 0
+        gamescreen.camy =0 
+        
 
     while(playing):#death detection
         for event in pygame.event.get():
@@ -167,25 +183,28 @@ while(game):#the window is open
 
         if hero.getCollision().right + gamescreen.camx < 0:
             playing = False
-            menuing = True
+            death = True
             print("death")
             #done = True
         if hero.getCollision().left + gamescreen.camx - 1280 > 0:
             playing = False
-            menuing = True
+            death = True
             print("death")
         if hero.getCollision().bottom + gamescreen.camy < 0:
             playing = False
-            menuing = True
+            death = True
             print("death")
         if hero.getCollision().top + gamescreen.camy - 600 > 0:
             playing = False
-            menuing = True
+            death = True
             print("death")
         
             #print(gamescreen.camy + sheight, hero.getCollision().top)
 
-
+        if gamestate.gamefinished==True:
+            win=True
+            playing=False
+            print("victory")
 
         #screen.
         #screen.blit(starimg,shape)
