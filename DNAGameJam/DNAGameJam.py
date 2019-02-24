@@ -14,9 +14,9 @@ import time
 pygame.font.init()
 
 
-writting = pygame.font.SysFont("arial",26,False,False)
+writting = pygame.font.SysFont("arial",50,False,False)
 
-gameovertext = writting.render("Gave Over", True, pygame.Color(0,0,0))
+gameovertext = writting.render("Gave Over", True, pygame.Color(66,244,238))#select a beeter color
 gameoverrect = gameovertext.get_rect()
 #print(testcandy.id())
 
@@ -38,7 +38,7 @@ timmer = pygame.time.Clock()
 swidth = 1280
 sheight =600
 pygame.display.set_mode([swidth,sheight])
-pygame.display.set_caption("stolen sweets")
+pygame.display.set_caption("Stolen Sweets")
 gamescreen=screen.window(pygame.display.get_surface())
 gameoverrect.center = (swidth/2,sheight/2)
 
