@@ -120,9 +120,8 @@ while(not done):
             pass
             #print(event.type)
 
-    shape.x = shape.x+xvel
-    shape.y = shape.y+yvel
-
+    gamestate.checkevents(abs(gamescreen.camx))
+    gamescreen.changex(gamestaete.scrollSpeed)
     if(shape.bottom>sheight or shape.top<0):
         yvel = yvel * -1
     if(shape.right>swidth or shape.left<0):

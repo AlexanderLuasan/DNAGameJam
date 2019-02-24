@@ -5,7 +5,7 @@ from Rotator import Rotationpoint, lineMover
 from candy import candy
 
 class scrollevent():
-    def__init__(self,x,sp):
+    def __init__(self,x,sp):
         self.x = x
         self.speed = sp
 
