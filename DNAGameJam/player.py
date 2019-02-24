@@ -2,6 +2,7 @@ from CollisionObj import CollisionObj
 maxspeedy = 4.5
 maxspeedx = 3
 speedx = 3
+friction = 0.1
 gravity = 0.5
 gravityspeed = 2
 countindexvar = 0.5
@@ -59,11 +60,11 @@ class player(CollisionObj):
             self.vely=-maxspeedy
         
         if(self.keys[0]==False and self.keys[1]==False):
-            self.velx-=0.1
+            self.velx-=friction
             if(self.velx<0):
                 self.velx=0
         if(self.keys[1]==False and self.keys[0]==False):
-            self.velx+=0.1
+            self.velx+=friction
             if(self.velx>0):
                 self.velx=0
         #if(self.keys[2]==False and self.keys[3]==False):
