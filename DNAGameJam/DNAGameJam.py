@@ -86,6 +86,9 @@ while(game):#the window is open
         gamescreen.drawimg(gameoverrect,gameovertext)
         pygame.display.flip()
     while(death):#Death
+        if(not pygame.mixer.music.get_busy()):
+            pygame.mixer.music.load("resource/flatfootmain.mp3")
+            pygame.mixer.music.play()
         for event in pygame.event.get():
             if (event.type == 12):
                 game = False
@@ -100,8 +103,10 @@ while(game):#the window is open
         pointsrect.center = (swidth/2,sheight/2)
         gamescreen.drawimg(pointsrect,points)
         pygame.display.flip()
-
     while(win):
+        if(not pygame.mixer.music.get_busy()):
+            pygame.mixer.music.load("resource/flatfootmain.mp3")
+            pygame.mixer.music.play()
         for event in pygame.event.get():
             if (event.type == 12):
                 game = False
