@@ -8,8 +8,7 @@ class candy(CollisionObj):
     def __init__(self, CollisionRect):
         CollisionObj.__init__(self,CollisionRect,CollisionRect)
 
-        self.imgnumber=random.randint(0, 1)
-
+        self.imgnumber=random.randint(0, 19)
         self.frame=random.randint(0,359)
         self.count=0
         self.direction = random.choice([-1,1])
