@@ -4,6 +4,10 @@ from plat import plat,movingplat
 from Rotator import Rotationpoint, lineMover
 from candy import candy
 
+class scrollevent():
+    def__init__(self,x,sp):
+        self.x = x
+        self.speed = sp
 
 class level():
     def __init__(self,filename):
@@ -12,6 +16,10 @@ class level():
         self.updaters = []
         self.platforms = []
 
+        self.events = []
+
+        self.scrollSpeed = 1
+
         for objectGroup in objectGroups:
             if(objectGroup.attributes["name"].value=="Control"):
                 objects = objectGroup.getElementsByTagName('object')
@@ -19,6 +27,14 @@ class level():
                     if(obj.attributes["name"].value == "playerstart"):
                         self.px = int(obj.attributes["x"].value)
                         self.py = int(obj.attributes["y"].value)
+                        
+                    if(obj.attributes["name"].value == "setscroll"):
+                        x = int(obj.attributes["x"].value)
+                        sp = 1
+                        for p in obj.getElementsByTagName("property"):
+                            if(p.attributes["name"].value == "speed"):
+                                sp=int(p.attributes["value"].value)
+                        self.events.append(scrollevent(x,sp))
 
         for objectGroup in objectGroups:
             if(objectGroup.attributes["name"].value=="Updaters"):
@@ -88,7 +104,9 @@ class level():
                     p = candy(pygame.Rect(x,y,w,h))
                     self.platforms.append(p)
         print(len(plafroms))
-                    
+    def checkevents(self):
+        for  i in range(len(events)):
+            print(i)
 
 
 
