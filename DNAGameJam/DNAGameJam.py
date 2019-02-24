@@ -50,8 +50,6 @@ if(not pygame.mixer.music.get_busy()):
 
 back = backgroundimg(0,0,"resource/image.jpg")
 
-cammramovement = [False,False,False,False]
-
 menuing = True
 game = True
 playing = False
@@ -132,19 +130,7 @@ while(game):#the window is open
                 playing = False
                 game = False
             elif(event.type == 2):
-                if(event.key==119):
-                    #print('w')
-                    cammramovement[2]=True
-                elif(event.key == 97):
-                    #print('a')
-                    cammramovement[0]=True
-                elif(event.key == 115):
-                    #print('s')
-                    cammramovement[3]=True
-                elif(event.key == 100):
-                    #print('d')
-                    cammramovement[1]=True
-                elif(event.key == 273):
+                if(event.key == 273):
                     #print('upkey')
                     hero.setkey(3, True)
                 elif(event.key == 276):
@@ -162,19 +148,7 @@ while(game):#the window is open
                     pass
                     #print(event.key)
             elif(event.type == 3):
-                if(event.key==119):
-                    #print('w')
-                    cammramovement[2]=False
-                elif(event.key == 97):
-                    #print('a')
-                    cammramovement[0]=False
-                elif(event.key == 115):
-                    #print('s')
-                    cammramovement[3]=False
-                elif(event.key == 100):
-                    #print('d')
-                    cammramovement[1]=False
-                elif(event.key == 273):
+                if(event.key == 273):
                     #print('upkey')
                     hero.setkey(3, False)
                 elif(event.key == 276):
@@ -207,16 +181,6 @@ while(game):#the window is open
             if(hero.getCollision().colliderect(gamestate.platforms[i].getCollision())):
                 hero.collide(gamestate.platforms[i])
                 gamestate.platforms[i].collide(hero)
-
-        #cammra movement
-        if(cammramovement[0]==True):
-            gamescreen.changex(3)
-        if(cammramovement[1]==True):
-            gamescreen.changex(-3)
-        if(cammramovement[2]==True):
-            gamescreen.changey(3)
-        if(cammramovement[3]==True):
-            gamescreen.changey(-3)
 
 
         if(hero.getCollision().right + gamescreen.camx-800 > 0):
