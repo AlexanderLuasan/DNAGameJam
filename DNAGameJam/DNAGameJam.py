@@ -18,7 +18,7 @@ from Rotator import lineMover
 #sprite.test()
 
 
-gamestate = levelload.level("newmap.tmx")
+gamestate = levelload.level("resource/newmap.tmx")
 
 
 pygame.init()
@@ -38,8 +38,7 @@ gamescreen=screen.window(pygame.display.get_surface())
 
 
 
-
-back = backgroundimg(0,0,"background.jpg")
+back = backgroundimg(0,0,"resource/background.jpg")
 
 
 cammramovement = [False,False,False,False]

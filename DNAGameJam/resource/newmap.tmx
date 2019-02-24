@@ -24,7 +24,7 @@
   <object id="64" name="playerstart" x="97" y="93" width="107" height="82"/>
   <object id="70" name="setscroll" x="88" y="288" width="92" height="16">
    <properties>
-    <property name="speed" value="20"/>
+    <property name="speed" value="2"/>
    </properties>
   </object>
  </objectgroup>

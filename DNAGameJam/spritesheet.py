@@ -18,11 +18,11 @@ class collections:
 
 class sprite():
     def __init__ (self, filename):
-        myframe = minidom.parse('newsprite.tmx')
+        myframe = minidom.parse('resource/newsprite.tmx')
         animationsets = myframe.getElementsByTagName('objectgroup')
 
        
-        self.parent = pygame.image.load("new_sprite.png")
+        self.parent = pygame.image.load("resource/new_sprite.png")
         
         #clearcolor
         for x in range(self.parent.get_width()):
